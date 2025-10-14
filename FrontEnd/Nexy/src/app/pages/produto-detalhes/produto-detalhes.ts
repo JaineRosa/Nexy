@@ -4,6 +4,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ProdutoService } from '../../services/produtoService';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { CarrinhoStateService } from '../../services/carrinho-state-service';
 
 @Component({
   selector: 'app-produto-detalhes',
@@ -20,7 +21,8 @@ export class ProdutoDetalhes implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private produtoService: ProdutoService
+    private produtoService: ProdutoService,
+    private carrinhoStateService: CarrinhoStateService
   ) {}
 
   ngOnInit(): void {
@@ -37,8 +39,11 @@ export class ProdutoDetalhes implements OnInit {
     });
   }
 
-  adicionarAoCarrinho(): void {
-    alert(`Produto "${this.produto.nome}" (${this.quantidade} unidade(s)) adicionado ao carrinho!`);
-   
-  }
+  
+
+adicionarAoCarrinho(): void {
+  this.carrinhoStateService.adicionarAoCarrinho(this.produto, this.quantidade);
+}
+
+ 
 }

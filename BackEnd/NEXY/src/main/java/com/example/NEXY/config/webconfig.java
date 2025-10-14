@@ -7,7 +7,6 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
-@EnableWebMvc
 public class webconfig implements WebMvcConfigurer {
 
     @Override
@@ -21,9 +20,7 @@ public class webconfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        // Mapeia as requisições que começam com /uploads/**
         registry.addResourceHandler("/uploads/**")
-                // Para a localização física no disco na pasta 'uploads/'
                 .addResourceLocations("file:uploads/");
     }
 }
