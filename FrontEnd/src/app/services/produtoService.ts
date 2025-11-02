@@ -50,7 +50,7 @@ export class ProdutoService {
   }
 
   public deletarImagem(imagemId: number): Observable<void> {
-    const urlDelecao = `http://localhost:8080/produtos/imagens/${imagemId}`;
+    const urlDelecao = `https://nexy-backend.onrender.com/produtos/imagens/${imagemId}`;
     return this.http.delete<void>(urlDelecao);
   }
 

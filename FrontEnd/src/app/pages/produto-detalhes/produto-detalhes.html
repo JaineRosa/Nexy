@@ -31,7 +31,7 @@
       <strong>Preço:</strong> {{ produto.preco | currency:'BRL' }}
     </p>
     <p><strong>Estoque:</strong> {{ produto.estoque }}</p>
-    <p><strong>Categoria:</strong> {{ produto.categoria?.nome }}</p>
+    <p><strong>Categoria:</strong> {{ produto.categoria.nome }}</p>
 
     <div class="quantidade">
       <label for="qtd">Quantidade:</label>

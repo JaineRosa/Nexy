@@ -27,7 +27,7 @@
           <td>{{ prod.nome }}</td>
           <td>{{ prod.preco | currency:'BRL' }}</td>
           <td>{{ prod.estoque }}</td>
-          <td>{{ prod.categoria?.nome }}</td>
+          <td>{{ prod.categoria.nome }}</td>
           <td class="acoes">
             <button (click)="goToProdutoForm(prod.id)" class="btn-editar">Editar</button>
             <button (click)="removerProduto(prod.id)" class="btn-remover">Remover</button>

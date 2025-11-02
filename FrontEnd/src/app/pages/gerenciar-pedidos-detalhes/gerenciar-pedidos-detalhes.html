@@ -13,18 +13,18 @@
     <div class="pedido-info">
       <div class="info-section">
         <h4>Cliente</h4>
-        <p><strong>Nome:</strong> {{ pedido.cliente?.nome || 'N/A' }}</p>
-        <p><strong>Email:</strong> {{ pedido.cliente?.email || 'N/A' }}</p>
-        <p><strong>Telefone:</strong> {{ pedido.cliente?.telefone || 'N/A' }}</p>
-        <p><strong>CPF:</strong> {{ pedido.cliente?.cpf || 'N/A' }}</p>
+        <p><strong>Nome:</strong> {{ pedido.cliente.nome || 'N/A' }}</p>
+        <p><strong>Email:</strong> {{ pedido.cliente.email || 'N/A' }}</p>
+        <p><strong>Telefone:</strong> {{ pedido.cliente.telefone || 'N/A' }}</p>
+        <p><strong>CPF:</strong> {{ pedido.cliente.cpf || 'N/A' }}</p>
       </div>
 
       <div class="info-section">
         <h4>Endereço de Entrega</h4>
-        <p>{{ pedido.endereco?.rua || 'N/A' }}, {{ pedido.endereco?.numero || 'N/A' }}</p>
-        <p>{{ pedido.endereco?.bairro || 'N/A' }} - {{ pedido.endereco?.cidade || 'N/A' }}/{{ pedido.endereco?.estado || 'N/A' }}</p>
-        <p><strong>CEP:</strong> {{ pedido.endereco?.cep || 'N/A' }}</p>
-        <p *ngIf="pedido.endereco?.complemento"><strong>Complemento:</strong> {{ pedido.endereco.complemento }}</p>
+        <p>{{ pedido.endereco.rua || 'N/A' }}, {{ pedido.endereco.numero || 'N/A' }}</p>
+        <p>{{ pedido.endereco.bairro || 'N/A' }} - {{ pedido.endereco.cidade || 'N/A' }}/{{ pedido.endereco.estado || 'N/A' }}</p>
+        <p><strong>CEP:</strong> {{ pedido.endereco.cep || 'N/A' }}</p>
+        <p *ngIf="pedido.endereco.complemento"><strong>Complemento:</strong> {{ pedido.endereco.complemento }}</p>
       </div>
 
       <div class="info-section">
@@ -51,7 +51,7 @@
         <tr *ngFor="let item of pedido.itens">
           <td>
             <a [routerLink]="['/produto', item.produto.id]" target="_blank"> 
-              {{ item.produto?.nome || 'Produto não disponível' }}
+              {{ item.produto.nome || 'Produto não disponível' }}
             </a>
           </td>
           <td>{{ item.quantidade }}</td>

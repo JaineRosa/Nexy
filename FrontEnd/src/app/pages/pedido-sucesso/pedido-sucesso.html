@@ -11,7 +11,7 @@
 
   <div *ngIf="!carregando && pedido">
     <h2> Pedido Realizado com Sucesso!</h2>
-    <p class="subtitulo">Obrigado por comprar conosco, {{ pedido.cliente?.nome }}!</p>
+    <p class="subtitulo">Obrigado por comprar conosco, {{ pedido.cliente.nome }}!</p>
 
     <div class="resumo-pedido">
       <h3>Resumo do Pedido</h3>
@@ -32,7 +32,7 @@
         <div class="lista-itens">
             <div *ngFor="let item of pedido.itens" class="item-pedido">
                
-               <img [src]="'https://nexy-backend.onrender.com' + item.produto.imagens[0]?.url" [alt]="item.produto.nome" *ngIf="item.produto.imagens && item.produto.imagens.length > 0; else semImagem">
+               <img [src]="'https://nexy-backend.onrender.com' + item.produto.imagens[0].url" [alt]="item.produto.nome" *ngIf="item.produto.imagens && item.produto.imagens.length > 0; else semImagem">
         <ng-template #semImagem>
             <img src="/assets/img/sem-imagem.png" alt="Sem imagem disponível">
         </ng-template>
