@@ -13,10 +13,6 @@ import java.util.List;
 
 @Entity
 @Table(name = "cliente")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 public class Cliente implements UserDetails {
     @Id
