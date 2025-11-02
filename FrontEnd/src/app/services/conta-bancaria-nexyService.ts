@@ -7,7 +7,7 @@ import { ContaBancariaNexy } from '../interfaces/ContaBancariaNexy';
   providedIn: 'root'
 })
 export class ContaBancariaNexyService {
-   private baseUrl = 'http://localhost:8080/contas-bancarias';
+   private baseUrl = 'https://nexy-backend.onrender.com/contas-bancarias';
 
   constructor(private http: HttpClient) {}
 

@@ -7,7 +7,7 @@ import { CadastroNexy } from '../interfaces/CadatroNexy';
   providedIn: 'root'
 })
 export class CadastroNexyService {
-    private baseUrl = 'http://localhost:8080/cadastros-nexy';
+    private baseUrl = 'https://nexy-backend.onrender.com/cadastros-nexy';
 
   constructor(private http: HttpClient) {}
 

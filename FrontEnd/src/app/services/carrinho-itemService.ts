@@ -11,7 +11,7 @@ import { CarrinhoItem } from "../interfaces/CarrinhoItem";
   providedIn: 'root'
 })
 export class CarrinhoItemService {
-   private baseUrl = 'http://localhost:8080/carrinho-itens';
+   private baseUrl = 'https://nexy-backend.onrender.com/carrinho-itens';
 
   constructor(private http: HttpClient) { }
 

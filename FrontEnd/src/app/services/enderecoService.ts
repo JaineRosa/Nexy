@@ -8,7 +8,7 @@ import { Endereco } from "../interfaces/Endereco";
 })
 export class EnderecoService {
   
-private baseUrl = 'http://localhost:8080/enderecos';
+private baseUrl = 'https://nexy-backend.onrender.com/enderecos';
 
   constructor(private http: HttpClient) { }
 

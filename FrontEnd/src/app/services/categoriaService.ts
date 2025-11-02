@@ -9,7 +9,7 @@ import { Categoria } from '../interfaces/Categorias';
   providedIn: 'root'
 })
 export class CategoriaService {
-  private apiUrl = 'http://localhost:8080/categorias'; 
+  private apiUrl = 'https://nexy-backend.onrender.com/categorias'; 
 
   constructor(private http: HttpClient) { }
 

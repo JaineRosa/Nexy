@@ -9,7 +9,7 @@ import { PedidoItem } from "../interfaces/PedidoItem";
 })
 export class PedidoItemService {
   
-private baseUrl = 'http://localhost:8080/pedido-itens';
+private baseUrl = 'https://nexy-backend.onrender.com/pedido-itens';
 
   constructor(private http: HttpClient) { }
 

@@ -8,7 +8,7 @@ import { Produto } from "../interfaces/Produto";
 })
 export class ProdutoService {
 
-  private baseUrl = 'http://localhost:8080/produtos'; 
+  private baseUrl = 'https://nexy-backend.onrender.com/produtos'; 
 
 
   constructor(private http: HttpClient) { }

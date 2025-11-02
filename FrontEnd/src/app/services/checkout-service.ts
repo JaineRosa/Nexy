@@ -9,7 +9,7 @@ import { Pedido } from '../interfaces/Pedido';
   providedIn: 'root'
 })
 export class CheckoutService {
-  private baseUrl = 'http://localhost:8080';
+  private baseUrl = 'https://nexy-backend.onrender.com';
 
   constructor(private http: HttpClient) { }
 

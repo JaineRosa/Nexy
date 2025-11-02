@@ -8,7 +8,7 @@ import { Carrinho } from "../interfaces/Carrinho";
   providedIn: 'root'
 })
 export class CarrinhoService {
- private baseUrl = 'http://localhost:8080/carrinhos';
+ private baseUrl = 'https://nexy-backend.onrender.com/carrinhos';
 
   constructor(private http: HttpClient) { }
 

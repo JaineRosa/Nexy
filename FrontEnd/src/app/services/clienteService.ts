@@ -8,7 +8,7 @@ import { Cliente } from "../interfaces/Cliente";
 })
 export class ClienteService {
   
-private baseUrl = 'http://localhost:8080/clientes'; 
+private baseUrl = 'https://nexy-backend.onrender.com/clientes'; 
 
   constructor(private http: HttpClient) { }
 

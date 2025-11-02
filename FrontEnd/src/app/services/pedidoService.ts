@@ -9,7 +9,7 @@ import { StatusPedido } from "../interfaces/StatusPedido";
 })
 export class PedidoService {
   
-private baseUrl = 'http://localhost:8080/pedidos';
+private baseUrl = 'https://nexy-backend.onrender.com/pedidos';
 
   constructor(private http: HttpClient) { }
 

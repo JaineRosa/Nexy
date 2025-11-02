@@ -15,7 +15,7 @@ export interface LoginResponseDTO {
   providedIn: 'root'
 })
 export class AuthService {
-  private baseUrl = 'http://localhost:8080/auth';
+  private baseUrl = 'https://nexy-backend.onrender.com/auth';
   private sessionKey = 'nexy_user_session';
 
   // BehaviorSubjects privados para controlar o estado internamente

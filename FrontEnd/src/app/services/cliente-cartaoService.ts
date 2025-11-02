@@ -9,7 +9,7 @@ import { ClienteCartao } from "../interfaces/ClienteCartao";
 })
 export class ClienteCartaoService {
   
-private baseUrl = 'http://localhost:8080/clientes-cartao';
+private baseUrl = 'https://nexy-backend.onrender.com/clientes-cartao';
 
   constructor(private http: HttpClient) { }
 
