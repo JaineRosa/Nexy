@@ -7,7 +7,7 @@
 
 
         <div *ngFor="let img of produto.imagens; let i = index" class="carousel-item" [class.active]="i === 0">
-          <img [src]="'http://localhost:8080' + img.url" class="d-block w-100 card-img-top"
+          <img [src]="'https://nexy-backend.onrender.com' + img.url" class="d-block w-100 card-img-top"
             [alt]="produto.nome + ' - Imagem ' + (i + 1)">
         </div>
 

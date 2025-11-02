@@ -84,7 +84,7 @@
             <h4>Imagens Atuais:</h4>
             <div class="preview-grid">
                 <div *ngFor="let imagem of imagensExistentes" class="preview-item">
-                    <img [src]="'http://localhost:8080' + imagem.url" [alt]="'Imagem ' + imagem.id">
+                    <img [src]="'https://nexy-backend.onrender.com' + imagem.url" [alt]="'Imagem ' + imagem.id">
                     <button type="button" class="btn-remove-preview" (click)="removerImagemExistente(imagem.id)">
                         &times; </button>
                 </div>
