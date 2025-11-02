@@ -32,7 +32,6 @@ export const routes: Routes = [
   { path: 'admin/produto/editar/:id', component: ProdutoForm },
   { path: 'produto/:id', component: ProdutoDetalhes },
   { path: 'registro', component: Registro },
-  { path: 'login', component: Login },
   { path: 'checkout', component: Checkout },
   { path: 'pedido-sucesso/:id', component: PedidoSucesso },
   { path: 'meus-pedidos', component: MeusPedidos },
@@ -43,5 +42,4 @@ export const routes: Routes = [
   {path: 'admin/gerenciarPedido', component: GerenciarPedidos},
   { path: 'admin/gerenciar-pedido-detalhes/:id', component: GerenciarPedidosDetalhes },
   { path: '**', redirectTo: 'home' },
-  { path: 'admin/test', component: AdminTest }
 ];
