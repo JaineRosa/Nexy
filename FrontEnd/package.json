@@ -1,11 +1,10 @@
 {
   "name": "nexy",
   "version": "0.0.0",
-"scripts": {
-  "build": "ng build --configuration production --output-path=dist/Nexy",
-  "start": "npx serve -s dist/Nexy -l 10000"
-}
-},
+  "scripts": {
+    "build": "ng build --configuration production --output-path=dist/Nexy",
+    "start": "npx serve -s dist/Nexy -l 10000"
+  },
   "prettier": {
     "printWidth": 100,
     "singleQuote": true,
