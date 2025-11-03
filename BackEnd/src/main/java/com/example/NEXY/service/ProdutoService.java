@@ -1,5 +1,7 @@
 package com.example.NEXY.service;
 
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 import com.example.NEXY.model.Categoria;
 import com.example.NEXY.model.ImagemProduto;
 import com.example.NEXY.model.Produto;
@@ -16,10 +18,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 public class ProdutoService {
@@ -27,13 +26,16 @@ public class ProdutoService {
     private final ProdutoRepository produtoRepository;
     private final ImagemProdutoRepository imagemProdutoRepository;
     private final CategoriaRepository categoriaRepository;
+    private final Cloudinary cloudinary;
 
     public ProdutoService(ProdutoRepository produtoRepository,
                           ImagemProdutoRepository imagemProdutoRepository,
-                          CategoriaRepository categoriaRepository) {
+                          CategoriaRepository categoriaRepository,
+                          Cloudinary cloudinary) {
         this.produtoRepository = produtoRepository;
         this.imagemProdutoRepository = imagemProdutoRepository;
         this.categoriaRepository = categoriaRepository;
+        this.cloudinary = cloudinary;
     }
 
     @Transactional
@@ -83,34 +85,25 @@ public class ProdutoService {
         produtoRepository.deleteById(id);
     }
 
+    @Transactional
     public List<String> salvarImagens(Long id, List<MultipartFile> imagens) throws IOException {
         Produto produto = this.findById(id);
-
         List<String> urls = new ArrayList<>();
-        String pastaUpload = "BackEnd/uploads/";
-        File diretorio = new File(pastaUpload);
-        if (!diretorio.exists()) {
-            diretorio.mkdirs();
-        }
 
         for (MultipartFile imagem : imagens) {
             if (imagem.isEmpty()) {
-                return List.of();
+                continue; // Pula imagens vazias
             }
 
-            String nomeArquivo = System.currentTimeMillis() + "_" + imagem.getOriginalFilename();
-            Path caminhoArquivo = Paths.get(pastaUpload + nomeArquivo);
-            System.out.println("Salvando imagem em: " + caminhoArquivo.toAbsolutePath());
+            // 1. Faz o upload para o Cloudinary
+            Map uploadResult = cloudinary.uploader().upload(imagem.getBytes(), ObjectUtils.emptyMap());
 
-            try {
-                Files.write(caminhoArquivo, imagem.getBytes());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            // 2. Pega a URL segura que o Cloudinary retornou
+            String urlImagem = uploadResult.get("secure_url").toString();
 
+            // 3. Salva essa URL no banco de dados
             ImagemProduto novaImagem = new ImagemProduto();
-            String urlImagem = "/BackEnd/uploads/" + nomeArquivo;
-            novaImagem.setUrl(urlImagem);
+            novaImagem.setUrl(urlImagem); // <-- Salva a URL do Cloudinary
             novaImagem.setProduto(produto);
 
             if (produto.getImagens() == null) {
@@ -130,33 +123,31 @@ public class ProdutoService {
 
     @Transactional
     public void deleteImagem(Long imagemId) throws IOException {
-
         ImagemProduto imagem = imagemProdutoRepository.findById(imagemId)
                 .orElseThrow(() -> new RuntimeException("Imagem não encontrada com id " + imagemId));
 
-        String caminhoArquivoStr = imagem.getUrl().substring(1);
+        // --- LÓGICA DE DELETAR DO CLOUDINARY ---
+        // 1. Pega a URL da imagem (ex: "https://res.cloudinary.com/.../public_id.jpg")
+        String url = imagem.getUrl();
 
-
-        Path caminhoArquivo = Paths.get(caminhoArquivoStr);
-
+        // 2. Extrai o "public_id" da URL (o nome do arquivo sem a extensão)
+        String publicId = url.substring(url.lastIndexOf("/") + 1, url.lastIndexOf("."));
 
         try {
-            // Usa a variável que acabamos de definir
-            Files.deleteIfExists(caminhoArquivo);
-
+            // 3. Manda o Cloudinary deletar a imagem usando o public_id
+            cloudinary.uploader().destroy(publicId, ObjectUtils.emptyMap());
         } catch (IOException e) {
-            // Loga o erro, mas continua para deletar do banco
-            System.err.println("Falha ao deletar arquivo do disco: " + caminhoArquivoStr);
+            System.err.println("Falha ao deletar imagem do Cloudinary: " + publicId);
             e.printStackTrace();
+            // (Não pare o processo, apenas logue. Ainda queremos deletar do banco)
         }
+        // --- FIM DA LÓGICA DO CLOUDINARY ---
 
-
+        // (O resto do seu código para deletar do banco está perfeito)
         Produto produto = imagem.getProduto();
         if (produto != null && produto.getImagens() != null) {
             produto.getImagens().remove(imagem);
         }
-
-        // 5. Deleta a imagem do banco de dados
         imagemProdutoRepository.delete(imagem);
     }
 }

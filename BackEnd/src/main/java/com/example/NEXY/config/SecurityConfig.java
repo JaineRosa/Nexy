@@ -37,12 +37,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
                         .requestMatchers(HttpMethod.GET, "/produtos/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/produtos").permitAll()
-
-                        .requestMatchers("/BackEnd/uploads/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/categorias").permitAll()
-                        .requestMatchers("BackEnd/uploads").permitAll()
-
-                        .requestMatchers("/uploads/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/BackEnd/categorias").permitAll()
                         .requestMatchers("/BackEnd/uploads").permitAll()
                         .requestMatchers(HttpMethod.POST, "/webhooks/trustpay").permitAll()
