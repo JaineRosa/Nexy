@@ -2,14 +2,12 @@
   <a [routerLink]="['/produto', produto.id]" class="card-link text-decoration-none text-dark">
 
     <div id="carousel-{{ produto.id }}" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
-      
+
       <div class="carousel-inner">
 
         <div *ngFor="let img of produto.imagens; let i = index" class="carousel-item" [class.active]="i === 0">
-          
-          <img [src]="'https://nexy-backend.onrender.com' + img.url" 
-               class="d-block w-100 card-img-top" 
-               [alt]="produto.nome + ' - Imagem ' + (i + 1)">
+
+          <img [src]="img.url" class="d-block w-100 card-img-top" [alt]="produto.nome + ' - Imagem ' + (i + 1)">
         </div>
 
         <div class="carousel-item active" *ngIf="!produto.imagens || produto.imagens.length === 0">
@@ -18,11 +16,13 @@
       </div>
 
       <ng-container *ngIf="produto.imagens && produto.imagens.length > 1">
-        <button class="carousel-control-prev" type="button" [attr.data-bs-target]="'#carousel-' + produto.id" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" [attr.data-bs-target]="'#carousel-' + produto.id"
+          data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" [attr.data-bs-target]="'#carousel-' + produto.id" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" [attr.data-bs-target]="'#carousel-' + produto.id"
+          data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
