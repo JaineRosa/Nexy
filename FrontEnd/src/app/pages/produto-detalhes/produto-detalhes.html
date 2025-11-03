@@ -5,7 +5,7 @@
   <div class="galeria-produto">
 
     <div class="imagem-principal">
-      <img [src]="'https://nexy-backend.onrender.com' + imagemSelecionadaUrl" 
+     <img [src]="imagemSelecionadaUrl"
            [alt]="produto.nome" 
            *ngIf="imagemSelecionadaUrl; else semImagem">
       <ng-template #semImagem>
@@ -18,7 +18,7 @@
            class="thumbnail-item"
            [class.ativa]="imagem.url === imagemSelecionadaUrl"
            (click)="selecionarImagem(imagem)">
-        <img [src]="'https://nexy-backend.onrender.com' + imagem.url" [alt]="'Miniatura ' + produto.nome">
+        <img [src]="imagem.url" [alt]="'Miniatura ' + produto.nome">
       </div>
     </div>
   </div>

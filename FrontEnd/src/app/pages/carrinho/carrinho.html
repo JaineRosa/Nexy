@@ -7,7 +7,7 @@
   <div class="carrinho-content">
     <div class="carrinho-items">
       <div *ngFor="let item of cartItems" class="cart-item">
-        <img [src]="'https://nexy-backend.onrender.com' + item.produto.imagens[0]?.url" [alt]="item.produto.nome" *ngIf="item.produto.imagens && item.produto.imagens.length > 0; else semImagemCarrinho">
+       <img [src]="item.produto.imagens[0]?.url" [alt]="item.produto.nome" *ngIf="item.produto.imagens && item.produto.imagens.length > 0; else semImagemCarrinho">
          <ng-template #semImagemCarrinho>
             <img src="/assets/img/sem-imagem.png" alt="Sem imagem">
          </ng-template>
