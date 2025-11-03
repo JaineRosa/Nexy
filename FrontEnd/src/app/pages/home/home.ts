@@ -1,13 +1,8 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
-  templateUrl: './home.html',
-  styleUrl: './home.css'
+  template: `<h1 style="color: red">Home está vivo!</h1>`
 })
-export class Home {
-
-}
+export class Home {}
