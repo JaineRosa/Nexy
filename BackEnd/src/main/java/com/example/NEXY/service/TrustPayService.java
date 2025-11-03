@@ -120,6 +120,34 @@ public class TrustPayService {
         payload.put("expirationMonth", expirationMonth);
         payload.put("expirationYear", expirationYear);
         payload.put("cvv", cvv);
+
+        // --- INÍCIO DA ATUALIZAÇÃO DE LOG ---
+        // Log SEGURO do payload, mascarando dados sensíveis
+        try {
+            // 1. Criamos um mapa *separado* para o log
+            Map<String, Object> safeLogPayload = new HashMap<>(payload);
+
+            // 2. Mascaramos o número do cartão
+            if (cardNumber != null && cardNumber.length() > 4) {
+                safeLogPayload.put("cardNumber", "**** **** **** " + cardNumber.substring(cardNumber.length() - 4));
+            } else {
+                safeLogPayload.put("cardNumber", "****");
+            }
+
+            // 3. Mascaramos o CVV
+            safeLogPayload.put("cvv", "***");
+
+            // 4. Convertemos o mapa SEGURO para JSON
+            String jsonFormatadoSeguro = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(safeLogPayload);
+
+            // 5. Logamos o JSON seguro
+            logger.info("Payload enviado para Captura (Seguro):\n{}", jsonFormatadoSeguro);
+
+        } catch (Exception e) {
+            logger.warn("Erro ao gerar log seguro do payload de captura.");
+        }
+       
+
         String rawBody;
         try {
             rawBody = objectMapper.writeValueAsString(payload);
@@ -140,12 +168,18 @@ public class TrustPayService {
         headers.set("x-api-key", trustPayApiKey);
         headers.set("x-timestamp", timestamp);
         headers.set("x-signature", signature);
+
+        logger.info("Headers da Captura: x-api-key={}, x-timestamp={}, x-signature={}",
+                trustPayApiKey, timestamp, signature);
+
+
         HttpEntity<String> request = new HttpEntity<>(rawBody, headers);
         logger.info("Enviando requisição de captura para pagamento id={}", paymentId);
         try {
             ResponseEntity<Map> response = restTemplate.exchange(url, HttpMethod.POST, request, Map.class);
             Map<String, Object> respBody = response.getBody();
 
+            // Este seu bloco de 'try-catch' já está ótimo
             if (response.getStatusCode() == HttpStatus.OK && respBody != null) {
                 if (Boolean.TRUE.equals(respBody.get("success"))) {
                     Map<String, Object> data = (Map<String, Object>) respBody.get("data");
@@ -169,8 +203,9 @@ public class TrustPayService {
         }
 
         return false;
-
     }
+
+
     public String consultarStatusPagamento(String paymentId) {
         String path = "/api/merchant/v1/payments/" + paymentId + "/status";
         String url = trustPayApiUrl + path;
