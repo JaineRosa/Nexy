@@ -121,32 +121,18 @@ public class TrustPayService {
         payload.put("expirationYear", expirationYear);
         payload.put("cvv", cvv);
 
-        // --- INÍCIO DA ATUALIZAÇÃO DE LOG ---
-        // Log SEGURO do payload, mascarando dados sensíveis
         try {
-            // 1. Criamos um mapa *separado* para o log
-            Map<String, Object> safeLogPayload = new HashMap<>(payload);
+            // Converte o payload completo para um JSON formatado
+            String jsonFormatadoNaoSeguro = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(payload);
 
-            // 2. Mascaramos o número do cartão
-            if (cardNumber != null && cardNumber.length() > 4) {
-                safeLogPayload.put("cardNumber", "**** **** **** " + cardNumber.substring(cardNumber.length() - 4));
-            } else {
-                safeLogPayload.put("cardNumber", "****");
-            }
-
-            // 3. Mascaramos o CVV
-            safeLogPayload.put("cvv", "***");
-
-            // 4. Convertemos o mapa SEGURO para JSON
-            String jsonFormatadoSeguro = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(safeLogPayload);
-
-            // 5. Logamos o JSON seguro
-            logger.info("Payload enviado para Captura (Seguro):\n{}", jsonFormatadoSeguro);
-
+            // Loga em "WARN" para ficar bem visível
+            logger.warn("================== LOG INSEGURO ATIVADO - REMOVER ==================");
+            logger.warn("Payload enviado para Captura (NÃO SEGURO):\n{}", jsonFormatadoNaoSeguro);
+            logger.warn("==================================================================");
         } catch (Exception e) {
-            logger.warn("Erro ao gerar log seguro do payload de captura.");
+            logger.error("Erro ao gerar log INSEGURO.");
         }
-       
+
 
         String rawBody;
         try {
