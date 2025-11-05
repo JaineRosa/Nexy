@@ -71,20 +71,42 @@
   margin-bottom: var(--spacing-lg);
 }
 
+.item-salvo, 
 .endereco-salvo {
-  background: var(--bg-elevated);
-  border: 1px solid var(--border-color);
+  border: 2px solid var(--border-color);
   border-radius: var(--radius-md);
   padding: var(--spacing-md);
   cursor: pointer;
   transition: all var(--transition-normal);
   margin-bottom: var(--spacing-md);
+  background: var(--bg-elevated);
 }
 
-.endereco-salvo:hover,
-.endereco-salvo.selected {
+.item-salvo:hover,
+.endereco-salvo:hover {
+  background: var(--bg-secondary);
+}
+
+.item-salvo.selecionado,
+.endereco-salvo.selecionado {
   border-color: var(--accent-primary);
   background: var(--accent-light);
+  box-shadow: 0 0 0 3px var(--accent-light);
+}
+
+.info-cartao {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.icone-cartao {
+  font-size: 2rem;
+}
+
+.nome-titular {
+  font-size: 0.875rem;
+  color: var(--text-muted);
 }
 
 .pagamento-opcoes {
@@ -186,6 +208,69 @@
   margin-top: var(--spacing-md);
   padding-top: var(--spacing-md);
   border-top: 1px solid var(--border-color);
+}
+
+.form-group {
+  margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-xs);
+  color: var(--text-secondary);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+.btn-toggle-form {
+  background: none;
+  border: none;
+  color: var(--accent-primary);
+  font-weight: 600;
+  cursor: pointer;
+  padding: var(--spacing-sm) 0;
+  margin-bottom: var(--spacing-md);
+}
+
+.btn-salvar,
+.btn-prosseguir,
+.btn-finalizar {
+  display: inline-block;
+  width: 100%;
+  padding: 0.875rem 1.5rem;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  text-align: center;
+}
+
+.btn-prosseguir,
+.btn-finalizar {
+  background: var(--accent-primary);
+  color: white; /* Ou defina var(--text-on-accent) */
+  margin-top: var(--spacing-lg);
+}
+
+.btn-prosseguir:hover,
+.btn-finalizar:hover {
+  filter: brightness(1.1);
+}
+
+.btn-salvar {
+  background: #22c55e; /* Verde do seu .step.completed */
+  color: white;
 }
 
 @media (max-width: 768px) {

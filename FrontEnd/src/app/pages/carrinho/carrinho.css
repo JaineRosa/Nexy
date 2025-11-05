@@ -252,6 +252,7 @@
 }
 
 .checkout-btn {
+  text-align: center;
   color: #ffffff;
   background: linear-gradient(135deg, #6283f0 0%, #89a4f0 100%);
   box-shadow: 0 10px 30px rgba(98, 131, 240, 0.3);
