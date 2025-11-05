@@ -1,132 +1,179 @@
-.pedido-detalhes-page {
-  padding: var(--spacing-xl) 0;
+
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;600;700&display=swap");
+
+
+.detalhes-container {
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+  color: #f5f5f5;
   min-height: 100vh;
+  padding: 3rem 2rem;
+  max-width: 1000px; 
+  margin: 0 auto;
 }
 
-.pedido-detalhes-container {
+
+.cabecalho-pedido {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  flex-wrap: wrap; 
+  gap: 1rem;
+}
+
+.cabecalho-pedido h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.0rem, 4vw, 3.0rem);
+  color: #6283f0;
+  margin: 0;
+}
+
+.btn-voltar {
+  background: transparent;
+  border: 1px solid #6283f0;
+  color: #6283f0;
+  padding: 0.8rem 1.5rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-voltar:hover {
+  background: rgba(98, 131, 240, 0.1);
+  color: #ffffff;
+}
+
+
+.info-grid {
   display: grid;
-  grid-template-columns: 1fr 400px;
-  gap: var(--spacing-xl);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  gap: 2rem;
+  margin-bottom: 3rem;
 }
 
-.pedido-timeline {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg);
-  padding: var(--spacing-lg);
-  margin-bottom: var(--spacing-lg);
+.info-card {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
+  border-radius: 24px;
+  padding: 2rem;
+  border: 1px solid rgba(98, 131, 240, 0.3);
 }
 
-.timeline {
-  position: relative;
-  padding-left: var(--spacing-xl);
+.info-card h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  color: #6283f0;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
 }
 
-.timeline::before {
-  content: "";
-  position: absolute;
-  left: 8px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: var(--border-color);
-}
-
-.timeline-item {
-  position: relative;
-  padding-bottom: var(--spacing-lg);
-}
-
-.timeline-item:last-child {
-  padding-bottom: 0;
-}
-
-.timeline-marker {
-  position: absolute;
-  left: -28px;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: var(--bg-elevated);
-  border: 2px solid var(--border-color);
-}
-
-.timeline-item.completed .timeline-marker {
-  background: var(--accent-primary);
-  border-color: var(--accent-primary);
-}
-
-.timeline-content h4 {
-  font-size: 1rem;
-  margin-bottom: var(--spacing-xs);
-}
-
-.timeline-date {
-  color: var(--text-muted);
-  font-size: 0.875rem;
-}
-
-.pedido-produtos {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg);
-  padding: var(--spacing-lg);
-  margin-bottom: var(--spacing-lg);
-}
-
-.pedido-endereco {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg);
-  padding: var(--spacing-lg);
-}
-
-.endereco-info {
-  color: var(--text-secondary);
+.info-card p {
+  margin: 0.25rem 0;
+  color: #b0b0b0;
   line-height: 1.6;
 }
 
-.pedido-resumo-sidebar {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg);
-  padding: var(--spacing-lg);
-  height: fit-content;
-  position: sticky;
-  top: var(--spacing-lg);
+
+.detalhes-container > h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+  color: #6283f0;
+  margin-bottom: 1.5rem;
+  margin-top: 2rem;
+  font-weight: 700;
 }
 
-.rastreamento-code {
-  background: var(--bg-elevated);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  padding: var(--spacing-md);
-  margin-top: var(--spacing-md);
-  font-family: monospace;
-  text-align: center;
+.lista-itens {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.item-pedido {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
+  border-radius: 20px;
+  padding: 1rem;
+  border: 1px solid rgba(98, 131, 240, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.item-pedido img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.info-item {
+  flex: 1;
+}
+
+.info-item h4 {
+  font-size: 1.2rem;
+  color: #ffffff;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+}
+
+.info-item p {
+  margin: 0.25rem 0;
+  color: #b0b0b0;
+  font-size: 0.9rem;
+}
+
+.subtotal-item {
+  margin-left: auto;
+  text-align: right;
+}
+
+.subtotal-item strong {
+  font-size: 1.2rem;
+  color: #ffffff;
   font-weight: 600;
 }
 
-.btn-rastrear {
-  width: 100%;
-  margin-top: var(--spacing-md);
+/*
+  Resumo Total (Caixa no final)
+*/
+.resumo-total {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
+  border-radius: 24px;
+  padding: 2rem;
+  border: 1px solid rgba(98, 131, 240, 0.3);
+  max-width: 450px;
+  margin-left: auto; 
 }
 
-.btn-cancelar {
-  width: 100%;
-  margin-top: var(--spacing-sm);
+.resumo-total h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  color: #6283f0;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
 }
 
-@media (max-width: 768px) {
-  .pedido-detalhes-container {
-    grid-template-columns: 1fr;
-  }
-
-  .pedido-resumo-sidebar {
-    position: static;
-  }
+.linha-total {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(98, 131, 240, 0.2);
+  color: #e0e0e0;
 }
 
+.linha-total.final {
+  border-bottom: none;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/*
+  Status do Pedido (Copiado do seu CSS, está correto)
+*/
 .status {
   padding: 5px 12px;
   border-radius: 20px;
@@ -143,4 +190,21 @@
 .status-processando { background-color: #0dcaf0; } 
 .status-enviado { background-color: #0d6efd; }
 .status-entregue { background-color: #198754; } 
-.status-cancelado { background-color: #dc3545; } 
+.status-cancelado { background-color: #dc3545; }
+
+/*
+  Caixas de Feedback (Carregando e Erro)
+*/
+.feedback-box {
+  text-align: center;
+  padding: 4rem;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
+  border-radius: 24px;
+  border: 1px solid rgba(98, 131, 240, 0.3);
+}
+
+.feedback-box.erro h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+  color: #dc3545; 
+}
