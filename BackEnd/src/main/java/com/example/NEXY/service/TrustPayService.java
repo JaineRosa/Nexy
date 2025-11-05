@@ -165,29 +165,30 @@ public class TrustPayService {
             ResponseEntity<Map> response = restTemplate.exchange(url, HttpMethod.POST, request, Map.class);
             Map<String, Object> respBody = response.getBody();
 
-            // Este seu bloco de 'try-catch' já está ótimo
-            if (response.getStatusCode() == HttpStatus.OK && respBody != null) {
+            if (response.getStatusCode().is2xxSuccessful() && respBody != null) {
                 if (Boolean.TRUE.equals(respBody.get("success"))) {
                     Map<String, Object> data = (Map<String, Object>) respBody.get("data");
                     if (data != null && data.containsKey("status")) {
-                        String status = (String) data.get("status");
+                        String status = data.get("status").toString();
                         if ("APPROVED".equalsIgnoreCase(status) || "AUTHORIZED".equalsIgnoreCase(status)) {
-                            logger.info("Pagamento capturado com sucesso, status: {}", status);
+                            logger.info("Pagamento aprovado! Status: {}", status);
                             return true;
+                        } else {
+                            logger.warn("Pagamento processado, mas não aprovado. Status: {}", status);
                         }
                     }
-                    logger.warn("Pagamento não aprovado, status retornado: {}", data.get("status"));
                 } else {
-                    logger.warn("Falha na captura do pagamento: {}", respBody.get("error"));
+                    String msg = (respBody.containsKey("message")) ? respBody.get("message").toString() : "Erro desconhecido";
+                    logger.warn("Falha na captura do pagamento: {}", msg);
                 }
             } else if (response.getStatusCode() == HttpStatus.UNPROCESSABLE_ENTITY) {
-                logger.error("Cartão rejeitado pela validação externa: {}", respBody);
+                logger.error("Cartão rejeitado: {}", respBody);
                 throw new RuntimeException("Pagamento recusado: cartão inválido ou não autorizado.");
             } else {
-                logger.warn("Resposta inesperada da TrustPay: {}", respBody);
+                logger.warn("Resposta inesperada da TrustPay: {}", response);
             }
-        } catch (Exception e) {
-            logger.error("Erro ao capturar pagamento no TrustPay", e);
+        } catch (RestClientException e) {
+            logger.error("Erro ao capturar pagamento: {}", e.getMessage());
             throw new RuntimeException("Erro ao capturar pagamento no TrustPay.", e);
         }
 
