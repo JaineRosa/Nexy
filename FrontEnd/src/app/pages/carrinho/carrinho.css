@@ -19,6 +19,7 @@
 }
 
 .carrinho-title {
+  text-align: center;
   font-family: "Playfair Display", serif;
   font-size: clamp(2.5rem, 5vw, 3.5rem);
   color: #6283f0;
