@@ -1,24 +1,24 @@
-/* ===== NAVBAR GERAL ===== */
+
 .navbar {
   background-color: #000000;
   box-shadow: 0 2px 10px rgba(255, 255, 255, 0.05);
-  padding: 13px 10px; /* espaçamento interno lateral */
+  padding: 13px 10px; 
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
-/* ===== CONTAINER FLEX ===== */
+
 .container {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* joga logo e links para extremos */
+  justify-content: space-between; 
   width: 100%;
-  max-width: 1700px; /* aumentei pra preencher mais a tela */
+  max-width: 1700px; 
   margin: 0 auto;
 }
 
-/* ===== LOGO ===== */
+
 .logo {
   display: flex;
   align-items: center;
@@ -38,7 +38,7 @@
   filter: brightness(1);
 }
 
-/* ===== LINKS ===== */
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -59,7 +59,7 @@
   padding: 6px 0;
 }
 
-/* ===== HOVER MODERNO ===== */
+
 .nav-links a::after {
   content: "";
   position: absolute;
@@ -80,7 +80,7 @@
 }
 
 
-/* ===== ÍCONE DO CARRINHO ===== */
+
 .nav-item .nav-link {
   display: flex;
   align-items: center;
@@ -94,7 +94,7 @@
   transform: translateY(-2px);
 }
 
-/* ===== BOTÃO DE LOGIN / LOGOUT ===== */
+
 .nav-item:last-child .nav-link {
   background: #00d1ff;
   color: #000;
@@ -111,7 +111,7 @@
   transform: translateY(-2px);
 }
 
-/* ===== RESPONSIVIDADE ===== */
+
 @media (max-width: 992px) {
   .container {
     flex-direction: column;
@@ -129,7 +129,7 @@
   }
 }
 
-/* ==== ANIMAÇÃO ESCONDER AO DESCER ==== */
+
 
 .navbar {
   transition: transform 0.3s ease;
