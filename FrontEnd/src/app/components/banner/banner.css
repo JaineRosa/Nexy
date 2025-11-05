@@ -5,6 +5,8 @@
     background-repeat: no-repeat;
     height: 70vh;
     padding: 0 1rem;
+    width: 80%;
+
 }
 
 .hero-banner h1,
@@ -18,8 +20,8 @@
 
 
 .card-img-top {
-    width: 100%;
-    height: 220px;
+    width: 900%;
+    height: 250px;
     object-fit: cover;
     border-radius: 8px;
 }
