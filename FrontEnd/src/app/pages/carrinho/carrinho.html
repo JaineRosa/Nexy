@@ -11,7 +11,7 @@
         
         <img [src]="item.produto.imagens[0]?.url" [alt]="item.produto.nome" *ngIf="item.produto.imagens && item.produto.imagens.length > 0; else semImagemCarrinho" class="item-image">
         <ng-template #semImagemCarrinho>
-           <img src="/assets/img/sem-imagem.png" alt="Sem imagem" class="item-image">
+        <img src="/img/sem-imagem.png" class="d-block w-100 card-img-top" alt="Sem imagem disponível">
         </ng-template>
 
         <div class="item-details">

@@ -129,7 +129,6 @@ public class TrustPayService {
             // Loga em "WARN" para ficar bem visível
             logger.warn("================== LOG INSEGURO ATIVADO - REMOVER ==================");
             logger.warn("Payload enviado para Captura (NÃO SEGURO):\n{}", jsonFormatadoNaoSeguro);
-            logger.warn("==================================================================");
         } catch (Exception e) {
             logger.error("Erro ao gerar log INSEGURO.");
         }
