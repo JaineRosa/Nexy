@@ -282,8 +282,9 @@
   transform: translateY(-2px);
 }
 .empty-cart {
-  grid-column: 1 / -1;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 5rem 2rem;
 }
 
