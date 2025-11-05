@@ -1,6 +1,30 @@
-<div class="container my-5">
-  <div class="p-5 bg-light rounded shadow-sm text-center">
-    <h2 class="text-secondary">Bem-vindo(a) à Loja Vendas!</h2>
-    <p>Explore nossos produtos e promoções exclusivas.</p>
+<div class="banner">
+  <app-banner></app-banner>
+  <div class="destaques">
+    <app-cards *ngFor="let produto of produtos.slice(0, 2)" [produto]="produto"></app-cards>
   </div>
+</div>
+
+<hr>
+
+<div class="home-layout">
+
+  <aside class="filtro-lateral">
+    <h3>Filtrar por categoria</h3>
+    <ul>
+      <li *ngFor="let categoria of categorias">
+        <button>{{ categoria }}</button>
+      </li>
+    </ul>
+  </aside>
+
+
+  <main class="conteudo-principal">
+
+    <h2 class="titulo-centralizado">🛒 Todos os Produtos</h2>
+
+    <div class="produtos-grid">
+      <app-cards *ngFor="let produto of produtos" [produto]="produto"></app-cards>
+    </div>
+  </main>
 </div>

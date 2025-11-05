@@ -260,6 +260,7 @@
 
 
 .continue-shopping-btn {
+  text-align: center;
   color: #aeb9e1; 
   background: rgba(98, 131, 240, 0.1); 
   border: 1px solid rgba(98, 131, 240, 0.3);

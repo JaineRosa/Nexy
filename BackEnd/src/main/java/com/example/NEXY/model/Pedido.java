@@ -1,5 +1,6 @@
 package com.example.NEXY.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
@@ -31,7 +32,7 @@ public class Pedido {
 
     private String paymentIntentId;
 
-    @Column(nullable = false)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime dataPedido;
 
     @ManyToOne
