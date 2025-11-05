@@ -15,7 +15,7 @@
     </div>
 
     <div class="info-grid">
-   
+
       <div class="info-card">
         <h3>Status do Pedido</h3>
         <span class="status" [ngClass]="'status-' + pedido.status.toLowerCase()">
@@ -36,10 +36,11 @@
     <h3>Itens Comprados</h3>
     <div class="lista-itens">
       <div *ngFor="let item of pedido.itens" class="item-pedido">
-       <img [src]="item.produto.imagens[0].url" 
-     *ngIf="item.produto.imagens && item.produto.imagens.length > 0; else semImagem">
+        <img [src]="item.produto.imagens[0].url"
+          *ngIf="item.produto.imagens && item.produto.imagens.length > 0; else semImagem">
+
         <ng-template #semImagem>
-            <img src="/assets/img/sem-imagem.png" alt="Sem imagem disponível">
+          <img src="/assets/img/sem-imagem.png" alt="Sem imagem disponível">
         </ng-template>
         <div class="info-item">
           <h4>{{ item.produto.nome }}</h4>

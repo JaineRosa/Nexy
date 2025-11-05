@@ -13,8 +13,7 @@ import { AuthService } from '../../services/auth-service';
   styleUrl: './meus-pedidos.css'
 })
 export class MeusPedidos implements OnInit {
-
-  pedidos: Pedido[] = [];
+pedidos: Pedido[] = [];
   carregando = true;
   erro = false;
 
@@ -28,10 +27,28 @@ export class MeusPedidos implements OnInit {
 
     if (clienteId) {
       this.pedidoService.buscarPorCliente(clienteId).subscribe({
+        
         next: (pedidosEncontrados) => {
-          this.pedidos = pedidosEncontrados;
+          
+   
+          this.pedidos = pedidosEncontrados.map(pedido => {
+            const dataArray = pedido.dataPedido as any as number[];
+
+            pedido.dataPedido = new Date(
+              dataArray[0],       
+              dataArray[1] - 1,  
+              dataArray[2],      
+              dataArray[3],     
+              dataArray[4],       
+              dataArray[5]        //
+            );
+            return pedido;
+          });
+
           this.carregando = false;
         },
+      
+
         error: (err) => {
           console.error("Erro ao buscar pedidos:", err);
           this.carregando = false;
