@@ -62,10 +62,10 @@ public class PedidoService {
 
         String orderId = "PEDIDO-" + clienteId + "-" + System.currentTimeMillis();
 
-        int amountInCents = (int) (carrinho.getValorTotal() * 100);
+        double amountInReais = carrinho.getValorTotal();
         String paymentIntentId = trustPayService.criarPaymentIntent(
                 orderId,
-                amountInCents,
+                amountInReais,
                 "BRL",
                 cliente.getNome(),
                 cliente.getEmail()

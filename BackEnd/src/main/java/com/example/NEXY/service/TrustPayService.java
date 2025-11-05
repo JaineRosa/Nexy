@@ -32,7 +32,7 @@ public class TrustPayService {
     private final ObjectMapper objectMapper = new ObjectMapper();
 
 
-    public String criarPaymentIntent(String orderId, int amount, String currency, String customerName, String customerEmail) {
+    public String criarPaymentIntent(String orderId, double amount, String currency, String customerName, String customerEmail) {
         String path = "/api/merchant/v1/payment-intents";
         String url = trustPayApiUrl + path;
         // Montar o corpo JSON da requisição
