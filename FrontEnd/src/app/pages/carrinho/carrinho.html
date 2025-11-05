@@ -1,60 +1,67 @@
-<div class="carrinho-content carrinho-grid">
- <h3 class="carrinho-title">Meu Carrinho</h3>
-  <ng-container *ngIf="cartItems.length > 0">
-    
-    <div class="carrinho-items">
-      <div *ngFor="let item of cartItems" class="carrinho-item">
-        <img [src]="item.produto.imagens[0]?.url" [alt]="item.produto.nome"
-          *ngIf="item.produto.imagens && item.produto.imagens.length > 0; else semImagemCarrinho" class="item-image">
-        <ng-template #semImagemCarrinho>
-          <img src="/img/sem-imagem.png" class="item-image" alt="Sem imagem disponível">
-        </ng-template>
+<div class="carrinho-container">
 
-        <div class="item-details">
-          <h3 class="item-name">{{ item.produto.nome }}</h3>
-          <p class="item-price">R$ {{ item.precoUnitario.toFixed(2) }}</p>
-        </div>
-
-        <div class="quantity-control">
-          <button class="quantity-btn" (click)="updateQuantity(item, -1)">-</button>
-          <span class="quantity-value">{{ item.quantidade }}</span>
-          <button class="quantity-btn" (click)="updateQuantity(item, 1)">+</button>
-        </div>
-
-        <div class="item-total">
-          <p class="total-price">R$ {{ (item.precoUnitario * item.quantidade).toFixed(2) }}</p>
-          <button class="remove-btn" (click)="removeItem(item)">🗑️</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="carrinho-summary">
-      <h2 class="summary-title">Resumo do Pedido</h2>
-      <div class="summary-row">
-        <span>Subtotal</span>
-        <span class="summary-value">R$ {{ subtotal.toFixed(2) }}</span>
-      </div>
-      <div class="summary-row">
-        <span>Frete</span>
-        <span class="summary-value">{{ shipping === 0 ? 'Grátis' : 'R$ ' + shipping.toFixed(2) }}</span>
-      </div>
-      <div class="summary-divider"></div>
-      <div class="summary-row">
-        <span>Total</span>
-        <span class="summary-value">R$ {{ total.toFixed(2) }}</span>
-      </div>
-      <a routerLink="/checkout" class="checkout-btn">
-        Finalizar Compra
-      </a>
-      <a routerLink="/produtos" class="continue-shopping-btn">Continuar Comprando</a>
-    </div>
-  </ng-container>
-
-  <div *ngIf="cartItems.length === 0" class="empty-cart">
-    <div class="empty-icon">🛒</div>
-    <h3 class="empty-message">Seu carrinho está vazio</h3>
-    <p class="empty-text">Adicione produtos para começar suas compras</p>
-    <a routerLink="/produtos" class="continue-shopping-btn">Explorar Produtos</a>
+  <div class="carrinho-header">
+    <h1 class="carrinho-title">Meu Carrinho</h1>
+    <p class="carrinho-subtitle">{{ cartItems.length }} itens no carrinho</p>
   </div>
 
+  <div class="carrinho-content carrinho-grid">
+
+    <ng-container *ngIf="cartItems.length > 0">
+
+      <div class="carrinho-items">
+        <div *ngFor="let item of cartItems" class="carrinho-item">
+          <img [src]="item.produto.imagens[0]?.url" [alt]="item.produto.nome"
+            *ngIf="item.produto.imagens && item.produto.imagens.length > 0; else semImagemCarrinho" class="item-image">
+          <ng-template #semImagemCarrinho>
+            <img src="/img/sem-imagem.png" class="item-image" alt="Sem imagem disponível">
+          </ng-template>
+
+          <div class="item-details">
+            <h3 class="item-name">{{ item.produto.nome }}</h3>
+            <p class="item-price">R$ {{ item.precoUnitario.toFixed(2) }}</p>
+          </div>
+
+          <div class="quantity-control">
+            <button class="quantity-btn" (click)="updateQuantity(item, -1)">-</button>
+            <span class="quantity-value">{{ item.quantidade }}</span>
+            <button class="quantity-btn" (click)="updateQuantity(item, 1)">+</button>
+          </div>
+
+          <div class="item-total">
+            <p class="total-price">R$ {{ (item.precoUnitario * item.quantidade).toFixed(2) }}</p>
+            <button class="remove-btn" (click)="removeItem(item)">🗑️</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="carrinho-summary">
+        <h2 class="summary-title">Resumo do Pedido</h2>
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span class="summary-value">R$ {{ subtotal.toFixed(2) }}</span>
+        </div>
+        <div class="summary-row">
+          <span>Frete</span>
+          <span class="summary-value">{{ shipping === 0 ? 'Grátis' : 'R$ ' + shipping.toFixed(2) }}</span>
+        </div>
+        <div class="summary-divider"></div>
+        <div class="summary-row">
+          <span>Total</span>
+          <span class="summary-value">R$ {{ total.toFixed(2) }}</span>
+        </div>
+        <a routerLink="/checkout" class="checkout-btn">
+          Finalizar Compra
+        </a>
+        <a routerLink="/produtos" class="continue-shopping-btn">Continuar Comprando</a>
+      </div>
+    </ng-container>
+
+    <div *ngIf="cartItems.length === 0" class="empty-cart">
+      <div class="empty-icon">🛒</div>
+      <h3 class="empty-message">Seu carrinho está vazio</h3>
+      <p class="empty-text">Adicione produtos para começar suas compras</p>
+      <a routerLink="/produtos" class="continue-shopping-btn">Explorar Produtos</a>
+    </div>
+  </div>
 </div>
