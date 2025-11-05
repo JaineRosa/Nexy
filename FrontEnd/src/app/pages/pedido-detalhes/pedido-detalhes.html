@@ -32,43 +32,36 @@
         <p>{{ pedido.endereco.cidade }} - {{ pedido.endereco.estado }}, CEP: {{ pedido.endereco.cep }}</p>
       </div>
     </div>
+    <div>
+      <h3>Itens Comprados</h3>
+      <div class="lista-itens">
+        <div *ngFor="let item of pedido.itens" class="item-pedido">
+          <img [src]="item.produto.imagens[0].url"
+            *ngIf="item.produto.imagens && item.produto.imagens.length > 0; else semImagem">
 
-    <h3>Itens Comprados</h3>
-    <div class="lista-itens">
-      <div *ngFor="let item of pedido.itens" class="item-pedido">
-        
-        <img [src]="item.produto.imagens[0].url" alt="{{ item.produto.nome }}"
-             *ngIf="item.produto.imagens && item.produto.imagens.length > 0; else semImagem">
-
-        <ng-template #semImagem>
-          <img src="/assets/img/sem-imagem.png" alt="Sem imagem disponível">
-        </ng-template>
-
-        <div class="info-item">
-          <h4>{{ item.produto.nome }}</h4>
-          <p>Quantidade: {{ item.quantidade }}</p>
-          <p>Preço Unitário: {{ item.precoUnitario | currency:'BRL' }}</p>
-        </div>
-        <div class="subtotal-item">
-          <strong>{{ (item.precoUnitario * item.quantidade) | currency:'BRL' }}</strong>
+          <ng-template #semImagem>
+            <img src="/assets/img/sem-imagem.png" alt="Sem imagem disponível">
+          </ng-template>
+          <div class="info-item">
+            <h4>{{ item.produto.nome }}</h4>
+            @@ -68,4 +69,4 @@ <h3>Resumo do Valor</h3>
+          </div>
         </div>
       </div>
-    </div>
-
-    <div class="resumo-total">
-      <h3>Resumo do Valor</h3>
-      <div class="linha-total">
-        <span>Subtotal:</span>
-        <span>{{ pedido.valorTotal | currency:'BRL' }}</span>
-      </div>
-      <div class="linha-total">
-        <span>Frete:</span>
-        <span>Grátis</span>
-      </div>
-      <div class="linha-total final">
-        <strong>Total:</strong>
-        <strong>{{ pedido.valorTotal | currency:'BRL' }}</strong>
+      <div class="resumo-total">
+        <h3>Resumo do Valor</h3>
+        <div class="linha-total">
+          <span>Subtotal:</span>
+          <span>{{ pedido.valorTotal | currency:'BRL' }}</span>
+        </div>
+        <div class="linha-total">
+          <span>Frete:</span>
+          <span>Grátis</span>
+        </div>
+        <div class="linha-total final">
+          <strong>Total:</strong>
+          <strong>{{ pedido.valorTotal | currency:'BRL' }}</strong>
+        </div>
       </div>
     </div>
   </div>
-</div>
