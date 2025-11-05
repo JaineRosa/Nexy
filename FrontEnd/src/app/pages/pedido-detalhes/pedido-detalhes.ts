@@ -31,16 +31,16 @@ export class PedidoDetalhes implements OnInit {
       this.pedidoService.buscarPorId(Number(id)).subscribe({
         next: (pedidoEncontrado) => {
 
+          // Esta é a sua correção da data (ótimo!)
           const dataArray = pedidoEncontrado.dataPedido as any as number[];
 
-
           pedidoEncontrado.dataPedido = new Date(
-            dataArray[0],       
-            dataArray[1] - 1,   
-            dataArray[2],       
-            dataArray[3],       
-            dataArray[4],       
-            dataArray[5]        
+            dataArray[0],      // Ano
+            dataArray[1] - 1,  // Mês (base 0)
+            dataArray[2],      // Dia
+            dataArray[3],      // Hora
+            dataArray[4],      // Minuto
+            dataArray[5]       // Segundo
           );
 
           this.pedido = pedidoEncontrado;
