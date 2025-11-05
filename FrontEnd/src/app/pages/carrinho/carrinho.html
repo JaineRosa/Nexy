@@ -6,12 +6,13 @@
 
   <div class="carrinho-content carrinho-grid">
     <div class="carrinho-items">
-      
+
       <div *ngFor="let item of cartItems" class="carrinho-item">
-        
-        <img [src]="item.produto.imagens[0]?.url" [alt]="item.produto.nome" *ngIf="item.produto.imagens && item.produto.imagens.length > 0; else semImagemCarrinho" class="item-image">
+
+        <img [src]="item.produto.imagens[0]?.url" [alt]="item.produto.nome"
+          *ngIf="item.produto.imagens && item.produto.imagens.length > 0; else semImagemCarrinho" class="item-image">
         <ng-template #semImagemCarrinho>
-        <img src="/img/sem-imagem.png" class="d-block card-img-top" alt="Sem imagem disponível">
+           <img src="/img/sem-imagem.png" class="item-image" alt="Sem imagem disponível">
         </ng-template>
 
         <div class="item-details">
@@ -33,7 +34,7 @@
 
       <div *ngIf="cartItems.length === 0" class="empty-cart">
         <div class="empty-icon">🛒</div>
-        <h3 class="empty-message">Seu carrinho está vazio</h3> 
+        <h3 class="empty-message">Seu carrinho está vazio</h3>
         <p class="empty-text">Adicione produtos para começar suas compras</p>
         <a routerLink="/produtos" class="continue-shopping-btn">Explorar Produtos</a>
       </div>
@@ -41,7 +42,7 @@
 
     <div class="carrinho-summary" *ngIf="cartItems.length > 0">
       <h2 class="summary-title">Resumo do Pedido</h2>
-      
+
       <div class="summary-row">
         <span>Subtotal</span>
         <span class="summary-value">R$ {{ subtotal.toFixed(2) }}</span>
@@ -61,7 +62,7 @@
 
       <a routerLink="/checkout" class="checkout-btn">
         Finalizar Compra
-        </a>
+      </a>
 
       <a routerLink="/produtos" class="continue-shopping-btn">Continuar Comprando</a>
     </div>
