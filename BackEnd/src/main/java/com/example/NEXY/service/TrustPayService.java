@@ -111,7 +111,7 @@ public class TrustPayService {
     }
 
     public boolean capturarPagamento(String paymentId, String cardNumber, String cardHolderName,
-                                     String expirationMonth, String expirationYear, String cvv) {
+                                     String expirationMonth, String expirationYear, String cvv, String cpf) {
         String path = "/api/merchant/v1/payments/" + paymentId + "/capture";
         String url = trustPayApiUrl + path;
         Map<String, Object> payload = new HashMap<>();
@@ -120,6 +120,7 @@ public class TrustPayService {
         payload.put("expirationMonth", expirationMonth);
         payload.put("expirationYear", expirationYear);
         payload.put("cvv", cvv);
+        payload.put("cpf",cpf);
 
         try {
             // Converte o payload completo para um JSON formatado
@@ -169,9 +170,12 @@ public class TrustPayService {
             if (response.getStatusCode() == HttpStatus.OK && respBody != null) {
                 if (Boolean.TRUE.equals(respBody.get("success"))) {
                     Map<String, Object> data = (Map<String, Object>) respBody.get("data");
-                    if (data != null && "APPROVED".equalsIgnoreCase((String) data.get("status"))) {
-                        logger.info("Pagamento capturado com sucesso, status: APPROVED");
-                        return true;
+                    if (data != null && data.containsKey("status")) {
+                        String status = (String) data.get("status");
+                        if ("APPROVED".equalsIgnoreCase(status) || "AUTHORIZED".equalsIgnoreCase(status)) {
+                            logger.info("Pagamento capturado com sucesso, status: {}", status);
+                            return true;
+                        }
                     }
                     logger.warn("Pagamento não aprovado, status retornado: {}", data.get("status"));
                 } else {
