@@ -19,14 +19,16 @@
 }
 
 .carrinho-title {
-  text-align: center;
   font-family: "Playfair Display", serif;
-  font-size: clamp(2.0rem, 4vw, 3.0rem);
+  font-size: clamp(1.8rem, 4vw, 3.0rem);
   color: #6283f0;
   font-weight: 700;
   margin-bottom: 0.5rem;
   position: relative;
-  display: inline-block;
+  display: block;     
+  width: fit-content;  
+  margin-left: auto;   
+  margin-right: auto; 
 }
 
 .carrinho-title::after {
