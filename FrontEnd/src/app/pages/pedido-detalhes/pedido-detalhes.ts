@@ -18,19 +18,31 @@ export class PedidoDetalhes implements OnInit {
   erro = false;
 
   constructor(
-    private route: ActivatedRoute, 
-    private pedidoService: PedidoService 
-  ) {}
+    private route: ActivatedRoute,
+    private pedidoService: PedidoService
+  ) { }
 
   ngOnInit(): void {
-   
+
     const id = this.route.snapshot.paramMap.get('id');
-    
+
     if (id) {
 
       this.pedidoService.buscarPorId(Number(id)).subscribe({
         next: (pedidoEncontrado) => {
-          pedidoEncontrado.dataPedido = new Date(pedidoEncontrado.dataPedido); 
+
+          const dataArray = pedidoEncontrado.dataPedido as any as number[];
+
+
+          pedidoEncontrado.dataPedido = new Date(
+            dataArray[0],       
+            dataArray[1] - 1,   
+            dataArray[2],       
+            dataArray[3],       
+            dataArray[4],       
+            dataArray[5]        
+          );
+
           this.pedido = pedidoEncontrado;
           this.carregando = false;
         },
@@ -40,11 +52,7 @@ export class PedidoDetalhes implements OnInit {
           this.erro = true;
         }
       });
-    } else {
-      console.error("ID do pedido não encontrado na URL.");
-      this.carregando = false;
-      this.erro = true;
+
     }
   }
-
 }
