@@ -84,7 +84,8 @@ public class PedidoService {
                 cardHolderName,
                 expirationMonth,
                 expirationYear,
-                cvv
+                cvv,
+                cpfTitular
         );
         if (!pagamentoAprovado) {
             throw new RuntimeException("Pagamento recusado pelo TrustPay.");
