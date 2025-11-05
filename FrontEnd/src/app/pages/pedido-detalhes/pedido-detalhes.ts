@@ -30,7 +30,7 @@ export class PedidoDetalhes implements OnInit {
 
       this.pedidoService.buscarPorId(Number(id)).subscribe({
         next: (pedidoEncontrado) => {
-
+           console.log('Pedido recebido do backend:', pedidoEncontrado);
           // Esta é a sua correção da data (ótimo!)
           const dataArray = pedidoEncontrado.dataPedido as any as number[];
 
