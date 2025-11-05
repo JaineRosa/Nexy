@@ -30,6 +30,7 @@ export class PedidoDetalhes implements OnInit {
 
       this.pedidoService.buscarPorId(Number(id)).subscribe({
         next: (pedidoEncontrado) => {
+          pedidoEncontrado.dataPedido = new Date(pedidoEncontrado.dataPedido); 
           this.pedido = pedidoEncontrado;
           this.carregando = false;
         },
