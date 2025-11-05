@@ -161,39 +161,42 @@ public class TrustPayService {
 
         HttpEntity<String> request = new HttpEntity<>(rawBody, headers);
         logger.info("Enviando requisição de captura para pagamento id={}", paymentId);
+
         try {
             ResponseEntity<Map> response = restTemplate.exchange(url, HttpMethod.POST, request, Map.class);
-            Map<String, Object> respBody = response.getBody();
 
-            if (response.getStatusCode().is2xxSuccessful() && respBody != null) {
-                if (Boolean.TRUE.equals(respBody.get("success"))) {
-                    Map<String, Object> data = (Map<String, Object>) respBody.get("data");
-                    if (data != null && data.containsKey("status")) {
-                        String status = data.get("status").toString();
-                        if ("APPROVED".equalsIgnoreCase(status) || "AUTHORIZED".equalsIgnoreCase(status)) {
-                            logger.info("Pagamento aprovado! Status: {}", status);
-                            return true;
-                        } else {
-                            logger.warn("Pagamento processado, mas não aprovado. Status: {}", status);
-                        }
-                    }
-                } else {
-                    String msg = (respBody.containsKey("message")) ? respBody.get("message").toString() : "Erro desconhecido";
-                    logger.warn("Falha na captura do pagamento: {}", msg);
+            if (response.getStatusCode() == HttpStatus.OK && response.getBody() != null) {
+                Map<String, Object> body = response.getBody();
+
+                // Tratar 'status' nulo para evitar NullPointerException
+                Object statusObj = body.get("status");
+                if (statusObj == null) {
+                    logger.error("Pagamento não aprovado. Resposta da TrustPay não continha 'status'. Body: {}", body);
+                    return false; // Ou jogue uma exceção, como preferir
                 }
-            } else if (response.getStatusCode() == HttpStatus.UNPROCESSABLE_ENTITY) {
-                logger.error("Cartão rejeitado: {}", respBody);
-                throw new RuntimeException("Pagamento recusado: cartão inválido ou não autorizado.");
+
+                String status = String.valueOf(statusObj).toUpperCase();
+
+                if ("APPROVED".equals(status) || "AUTHORIZED".equals(status)) {
+                    logger.info("Pagamento aprovado pela TrustPay com status: {}", status);
+                    return true; // <-- CORREÇÃO 1: Retornando 'true'
+                } else {
+                    // O pagamento foi processado, mas não aprovado (ex: REJECTED)
+                    logger.error("Pagamento não aprovado pela TrustPay. Status: {}", status);
+                    return false; // Retorna 'false' para o PedidoService tratar
+                }
             } else {
-                logger.warn("Resposta inesperada da TrustPay: {}", response);
+                // A API respondeu algo que não foi 200 OK (ex: 404, 500)
+                logger.error("Falha ao processar pagamento na TrustPay. Status: {}, Body: {}", response.getStatusCode(), response.getBody());
+                return false;
             }
         } catch (RestClientException e) {
-            logger.error("Erro ao capturar pagamento: {}", e.getMessage());
-            throw new RuntimeException("Erro ao capturar pagamento no TrustPay.", e);
+            // A chamada de rede falhou (ex: timeout, 503, etc)
+            logger.error("Erro de comunicação ao capturar pagamento: {}", e.getMessage());
+            return false;
         }
-
-        return false;
     }
+
 
 
     public String consultarStatusPagamento(String paymentId) {
