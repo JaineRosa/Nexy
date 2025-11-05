@@ -112,35 +112,26 @@ public class TrustPayService {
 
     public boolean capturarPagamento(String paymentId, String cardNumber, String cardHolderName,
                                      String expirationMonth, String expirationYear, String cvv, String cpf) {
+
         String path = "/api/merchant/v1/payments/" + paymentId + "/capture";
         String url = trustPayApiUrl + path;
+
         Map<String, Object> payload = new HashMap<>();
         payload.put("cardNumber", cardNumber);
         payload.put("cardHolderName", cardHolderName);
         payload.put("expirationMonth", expirationMonth);
         payload.put("expirationYear", expirationYear);
         payload.put("cvv", cvv);
-        payload.put("cpf",cpf);
-
-        try {
-            // Converte o payload completo para um JSON formatado
-            String jsonFormatadoNaoSeguro = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(payload);
-
-            // Loga em "WARN" para ficar bem visível
-            logger.warn("================== LOG INSEGURO ATIVADO - REMOVER ==================");
-            logger.warn("Payload enviado para Captura (NÃO SEGURO):\n{}", jsonFormatadoNaoSeguro);
-        } catch (Exception e) {
-            logger.error("Erro ao gerar log INSEGURO.");
-        }
-
+        payload.put("cpf", cpf);
 
         String rawBody;
         try {
             rawBody = objectMapper.writeValueAsString(payload);
         } catch (Exception e) {
-            logger.error("Erro ao converter payload para JSON", e);
+            logger.error("Erro ao converter payload de captura para JSON", e);
             return false;
         }
+
         String timestamp = String.valueOf(Instant.now().getEpochSecond());
         String signature;
         try {
@@ -149,49 +140,49 @@ public class TrustPayService {
             logger.error("Erro ao gerar assinatura na captura", e);
             return false;
         }
+
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         headers.set("x-api-key", trustPayApiKey);
         headers.set("x-timestamp", timestamp);
         headers.set("x-signature", signature);
 
-        logger.info("Headers da Captura: x-api-key={}, x-timestamp={}, x-signature={}",
-                trustPayApiKey, timestamp, signature);
-
+        // Não vamos logar a assinatura também, né?
+        logger.info("Headers da Captura: x-api-key={}, x-timestamp={}, x-signature=******", trustPayApiKey, timestamp);
 
         HttpEntity<String> request = new HttpEntity<>(rawBody, headers);
         logger.info("Enviando requisição de captura para pagamento id={}", paymentId);
 
         try {
+
             ResponseEntity<Map> response = restTemplate.exchange(url, HttpMethod.POST, request, Map.class);
 
-            if (response.getStatusCode() == HttpStatus.OK && response.getBody() != null) {
+            if (response.getStatusCode().is2xxSuccessful() && response.getBody() != null) {
+
                 Map<String, Object> body = response.getBody();
 
-                // Tratar 'status' nulo para evitar NullPointerException
                 Object statusObj = body.get("status");
                 if (statusObj == null) {
                     logger.error("Pagamento não aprovado. Resposta da TrustPay não continha 'status'. Body: {}", body);
-                    return false; // Ou jogue uma exceção, como preferir
+                    return false;
                 }
 
                 String status = String.valueOf(statusObj).toUpperCase();
 
                 if ("APPROVED".equals(status) || "AUTHORIZED".equals(status)) {
                     logger.info("Pagamento aprovado pela TrustPay com status: {}", status);
-                    return true; // <-- CORREÇÃO 1: Retornando 'true'
+                    return true; // Sucesso!
                 } else {
-                    // O pagamento foi processado, mas não aprovado (ex: REJECTED)
                     logger.error("Pagamento não aprovado pela TrustPay. Status: {}", status);
-                    return false; // Retorna 'false' para o PedidoService tratar
+                    return false;
                 }
+
             } else {
-                // A API respondeu algo que não foi 200 OK (ex: 404, 500)
-                logger.error("Falha ao processar pagamento na TrustPay. Status: {}, Body: {}", response.getStatusCode(), response.getBody());
+                logger.error("Falha ao processar pagamento na TrustPay. Status: {}, Body: {}",
+                        response.getStatusCode(), response.getBody());
                 return false;
             }
         } catch (RestClientException e) {
-            // A chamada de rede falhou (ex: timeout, 503, etc)
             logger.error("Erro de comunicação ao capturar pagamento: {}", e.getMessage());
             return false;
         }
