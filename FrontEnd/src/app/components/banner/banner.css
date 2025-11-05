@@ -24,6 +24,9 @@
     border-radius: 8px;
 }
 
+img{
+height: 220px;
+}
 @media (max-width: 768px) {
     .card-img-top {
         height: 180px;
