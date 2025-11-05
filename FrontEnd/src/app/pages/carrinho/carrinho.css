@@ -237,10 +237,10 @@
 
 .checkout-btn,
 .continue-shopping-btn {
-  display: flex; 
+  display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%; 
+  width: 100%;
   padding: 0.9rem 1.5rem;
   font-size: 1rem;
   font-weight: 600;
@@ -248,7 +248,7 @@
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
-  border: 1px solid transparent; 
+  border: 1px solid transparent;
 }
 
 .checkout-btn {
@@ -261,17 +261,17 @@
 
 .continue-shopping-btn {
   text-align: center;
-  color: #aeb9e1; 
-  background: rgba(98, 131, 240, 0.1); 
+  color: #aeb9e1;
+  background: rgba(98, 131, 240, 0.1);
   border: 1px solid rgba(98, 131, 240, 0.3);
-  margin-top: 0.8rem; 
+  margin-top: 0.8rem;
 }
 
 
 .checkout-btn:hover {
   background: linear-gradient(135deg, #7a9cff 0%, #a2baff 100%);
   box-shadow: 0 12px 35px rgba(98, 131, 240, 0.5);
-  transform: translateY(-2px); 
+  transform: translateY(-2px);
 }
 
 
@@ -281,7 +281,9 @@
   border-color: #6283f0;
   transform: translateY(-2px);
 }
+
 .empty-cart {
+  grid-column: 1 / -1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -303,9 +305,9 @@
 
 
 .empty-cart .continue-shopping-btn {
-  width: auto; 
-  padding: 0.9rem 2.5rem; 
-  margin-top: 1.5rem; 
+  width: auto;
+  padding: 0.9rem 2.5rem;
+  margin-top: 1.5rem;
 }
 
 @media (max-width: 968px) {
