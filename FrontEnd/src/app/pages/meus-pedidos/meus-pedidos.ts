@@ -29,7 +29,7 @@ pedidos: Pedido[] = [];
       this.pedidoService.buscarPorCliente(clienteId).subscribe({
         
         next: (pedidosEncontrados) => {
-          
+          console.log('Pedido recebido do backend:', pedidosEncontrados);
    
           this.pedidos = pedidosEncontrados.map(pedido => {
             const dataArray = pedido.dataPedido as any as number[];
