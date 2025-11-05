@@ -95,7 +95,7 @@ public class PedidoService {
         novoPedido.setCliente(cliente);
         novoPedido.setEndereco(endereco);
         novoPedido.setDataPedido(LocalDateTime.now());
-        novoPedido.setStatus(StatusPedido.PAGAMENTO_PENDENTE);
+        novoPedido.setStatus(StatusPedido.PAGAMENTO_APROVADO);
         novoPedido.setValorTotal(carrinho.getValorTotal());
         novoPedido.setPaymentIntentId(paymentIntentId);
         novoPedido.setOrderId(orderId);
@@ -142,7 +142,7 @@ public class PedidoService {
     }
 
     public java.util.Optional<Pedido> findById(Long id) {
-        return pedidoRepository.findById(id);
+        return pedidoRepository.findByIdCompleto(id);
     }
 
     public Optional<Pedido> findByOrderId(String orderId) {

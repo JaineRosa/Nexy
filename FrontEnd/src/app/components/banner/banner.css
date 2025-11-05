@@ -3,7 +3,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 70vh;
+    height: 80vh;
     padding: 0 1rem;
 }
 
@@ -12,9 +12,14 @@
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
 }
 
+.hero-banner {
+    transition: background-image 1s ease-in-out;
+}
+
+
 .card-img-top {
     width: 100%;
-    height: 220px;
+    height: 250px;
     object-fit: cover;
     border-radius: 8px;
 }
