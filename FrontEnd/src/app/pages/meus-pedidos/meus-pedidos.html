@@ -19,7 +19,7 @@
       <div class="card-header">
         <div>
           <h4>Pedido #{{ pedido.id }}</h4>
-          <p>Realizado em: {{ pedido.dataPedido | date:'dd/MM/yyyy' }}</p>
+          <p><strong>DEBUG:</strong> [{{ pedido.dataPedido }}]</p>
         </div>
         <span class="status" [ngClass]="'status-' + pedido.status.toLowerCase()">
           {{ pedido.status.replace('_', ' ') }}
