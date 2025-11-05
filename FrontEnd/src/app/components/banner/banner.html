@@ -1,15 +1,24 @@
 <div class="banner-container">
-    <h2 class="banner-titulo">Produtos em Destaque</h2>
+    <div class="hero-banner"></div>
 
-    <div class="banner-produtos">
-        <div class="banner-item" *ngFor="let produto of produtosDestaque">
-            <img [src]="produto.imagens?.length && produto.imagens[0].url 
-              ? produto.imagens[0].url 
-              : 'https://res.cloudinary.com/dy3yozja2/image/upload/v1762177701/b5u8gbrpxrvtszjqnn3c.png'"
-                [alt]="produto.nome" class="banner-img">
-            <div class="banner-info">
-                <h4>{{ produto.nome }}</h4>
-                <p>{{ produto.preco | currency:'BRL' }}</p>
+    <div class="container text-center text-white my-5">
+        <h2 class="banner-titulo">Produtos em Destaque</h2>
+        <p class="lead">Descubra o poder da inovação com IA e desempenho extremo</p>
+        <button class="btn btn-primary btn-lg mt-3">Saiba mais</button>
+    </div>
+</div>
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-4" *ngFor="let produto of produtosDestaque">
+            <div class="card">
+                <img [src]="produto.imagens[0]?.url || 'assets/imagens/produtos/default.png'" alt="{{ produto.nome }}"
+                    class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">{{ produto.nome }}</h5>
+                    <p class="card-text">{{ produto.descricao }}</p>
+                    <button class="btn btn-outline-primary">Ver mais</button>
+                </div>
             </div>
         </div>
     </div>
