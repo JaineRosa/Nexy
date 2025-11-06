@@ -50,15 +50,10 @@
     border-color: 1px solid #0d6efd;
     color: #1c1c1e;
 }
-h5 , a{
+card-title , btn-primary{
     color: #1c1c1e;
-
-}
-
-.card-body{
     height: 20px;
 }
-
 
 .card-img-top {
     text-align: center;
