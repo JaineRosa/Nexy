@@ -1,6 +1,5 @@
 .hero-banner {
     position: relative;
-    background-color: #f7f7f7;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -42,9 +41,11 @@
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
 }
 .card{
-
+    border-radius: 8px;
      width: 350px;
     height: 600px;
+    border-color: 1px solid #0d6efd;
+
 }
 
 .card-img-top {
