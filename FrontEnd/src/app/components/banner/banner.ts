@@ -13,10 +13,10 @@ import { ProdutoService } from '../../services/produtoService';
 export class Banner  implements OnInit {
   produtosDestaque: Produto[] = [];
 imagensBanner: string[] = [
-    '/img/banner/banner1.png',
-    '/img/banner/banner2.png',
-    '/img/banner/banner3.png',
-    '/img/banner/banner4.png'
+    '/img/banner1.png',
+    '/img/banner2.png',
+    '/img/banner3.png',
+    '/img/banner4.png'
   ];
   imagemAtual: string = this.imagensBanner[0];
   indiceAtual: number = 0;
