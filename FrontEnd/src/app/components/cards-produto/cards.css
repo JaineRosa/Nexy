@@ -1,17 +1,17 @@
 .card {
   cursor: pointer;
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  overflow: hidden; /* Importante para o carrossel não sair do card */
+  overflow: hidden; 
   display: flex;
   flex-direction: column;
   text-align: center;
   width: 280px; 
   height: 410px;
   margin-left: 16px; 
-  background-color: #121212;
-  color: white;
+  background-color: white;
+  color: #0d6efd;
   border-radius: 10px;
-  box-shadow: 0 0 15px #007bff50;
+  box-shadow: 0 0 15px #0d6efd;
   position: relative;
 }
 
@@ -27,7 +27,7 @@
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px #007bff70;
+  box-shadow: 0 8px 20px #0d6efd;
 }
 
 
@@ -54,7 +54,7 @@
 .card-text {
   font-size: 1.2rem;
   font-weight: bold;
-  color: #28a745; 
+  color: #0355d0; 
 }
 
 .carousel-control-prev-icon,
