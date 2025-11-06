@@ -28,20 +28,31 @@ export class PedidoSucesso implements OnInit {
     
     if (id) {
 
-      this.pedidoService.buscarPorId(Number(id)).subscribe({
+            this.pedidoService.buscarPorId(Number(id)).subscribe({
         next: (pedidoEncontrado) => {
+           console.log('Pedido recebido do backend:', pedidoEncontrado);
+   
+          const dataArray = pedidoEncontrado.dataPedido as any as number[];
+
+          pedidoEncontrado.dataPedido = new Date(
+            dataArray[0],      
+            dataArray[1],
+            dataArray[2],      
+            dataArray[3],    
+            dataArray[4],      
+            dataArray[5]     
+          );
+
           this.pedido = pedidoEncontrado;
           this.carregando = false;
         },
         error: (err) => {
-          console.error("Erro ao buscar o pedido:", err);
+          console.error("Erro ao buscar detalhes do pedido:", err);
           this.carregando = false;
           this.erro = true;
         }
       });
-    } else {
-      this.carregando = false;
-      this.erro = true;
+
     }
   }
 }

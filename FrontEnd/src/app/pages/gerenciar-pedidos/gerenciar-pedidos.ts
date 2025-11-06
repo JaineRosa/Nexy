@@ -30,8 +30,20 @@ export class GerenciarPedidos implements OnInit {
     this.carregando = true;
 
     this.pedidoService.getPedidos().subscribe({
+      next: (dados: Pedido[]) => {
 
-      next: (dados: Pedido[]) => { 
+        dados.forEach(pedido => {
+        const dataArray = pedido.dataPedido as any as number[];
+
+         pedido.dataPedido = new Date(
+            dataArray[0],       // Ano
+            dataArray[1] - 1,   // Mês (!!!)
+            dataArray[2],       // Dia
+            dataArray[3],       // Hora
+            dataArray[4],       // Minuto
+            dataArray[5]        // Segundo
+          );
+        });
         this.pedidos = dados;
         this.carregando = false;
         console.log("Pedidos carregados:", this.pedidos);
