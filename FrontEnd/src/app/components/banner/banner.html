@@ -7,17 +7,19 @@
         </div>
     </div>
 </div>
-
+di
 <div class="container my-5">
     <div class="row">
         <div class="col-md-4" *ngFor="let produto of produtosDestaque">
-            <div class="card">
-                <img [src]="produto.imagens[0]?.url || 'assets/imagens/produtos/default.png'" alt="{{ produto.nome }}"
-                    class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">{{ produto.nome }}</h5>
-                    <p class="card-text">{{ produto.descricao }}</p>
-                    <button class="btn btn-outline-primary">Ver mais</button>
+            <div class="produtos">
+                <div class="card">
+                    <img [src]="produto.imagens[0]?.url || 'assets/imagens/produtos/default.png'"
+                        alt="{{ produto.nome }}" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ produto.nome }}</h5>
+                        <p class="card-text">{{ produto.descricao }}</p>
+                        <button class="btn btn-outline-primary">Ver mais</button>
+                    </div>
                 </div>
             </div>
         </div>
