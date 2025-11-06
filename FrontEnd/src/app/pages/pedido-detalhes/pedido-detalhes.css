@@ -1,7 +1,10 @@
-
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;600;700&display=swap");
-*{
-    background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+
+.fundo {
+  background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+  width: 100%;
+  padding: 0;
+  margin: 0;
 }
 
 .detalhes-container {
@@ -10,7 +13,7 @@
   color: #f5f5f5;
   min-height: 100vh;
   padding: 3rem 2rem;
-  max-width: 1000px; 
+  max-width: 1000px;
   margin: 0 auto;
 }
 
@@ -20,7 +23,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 3rem;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
   gap: 1rem;
 }
 
@@ -50,7 +53,7 @@
 
 .info-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   margin-bottom: 3rem;
 }
@@ -77,7 +80,7 @@
 }
 
 
-.detalhes-container > h3 {
+.detalhes-container>h3 {
   font-family: "Playfair Display", serif;
   font-size: 1.8rem;
   color: #6283f0;
@@ -147,7 +150,7 @@
   padding: 2rem;
   border: 1px solid rgba(98, 131, 240, 0.3);
   max-width: 450px;
-  margin-left: auto; 
+  margin-left: auto;
 }
 
 .resumo-total h3 {
@@ -187,12 +190,29 @@
   color: #fff;
 }
 
-.status-pagamento_pendente { background-color: #ffc107; }
-.status-pagamento_aprovado { background-color: #198754; } 
-.status-processando { background-color: #0dcaf0; } 
-.status-enviado { background-color: #0d6efd; }
-.status-entregue { background-color: #198754; } 
-.status-cancelado { background-color: #dc3545; }
+.status-pagamento_pendente {
+  background-color: #ffc107;
+}
+
+.status-pagamento_aprovado {
+  background-color: #198754;
+}
+
+.status-processando {
+  background-color: #0dcaf0;
+}
+
+.status-enviado {
+  background-color: #0d6efd;
+}
+
+.status-entregue {
+  background-color: #198754;
+}
+
+.status-cancelado {
+  background-color: #dc3545;
+}
 
 /*
   Caixas de Feedback (Carregando e Erro)
@@ -208,5 +228,5 @@
 .feedback-box.erro h2 {
   font-family: "Playfair Display", serif;
   font-size: 1.8rem;
-  color: #dc3545; 
+  color: #dc3545;
 }
