@@ -1,34 +1,34 @@
 .gerenciar-container {
-  max-width: 1100px; 
+  max-width: 1100px;
   margin: 30px auto;
   padding: 30px;
-  color: #f0f0f0;
+  background-color: #ffffff;
+  color: #1c1c1e;
 }
 
-
 h2 {
-  color: #f0f0f0;
+  color: #1c1c1e;
   border-bottom: 2px solid #00bfff;
   padding-bottom: 15px;
   margin-bottom: 25px;
-  
 }
 
-.header-container, .header-actions {
+.header-container,
+.header-actions {
   margin-bottom: 20px;
 }
 
 .pedido-info {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-  gap: 30px; 
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
   margin-bottom: 20px;
 }
 
 .info-section h4 {
   color: #00bfff;
   margin-bottom: 15px;
-  border-bottom: 1px solid #444;
+  border-bottom: 1px solid #ddd;
   padding-bottom: 8px;
   font-size: 1.1rem;
 }
@@ -36,11 +36,11 @@ h2 {
 .info-section p {
   margin-bottom: 8px;
   line-height: 1.5;
-  color: #ccc;
+  color: #666666;
 }
 
 .info-section p strong {
-  color: #f0f0f0; 
+  color: #1c1c1e;
   margin-right: 5px;
 }
 
@@ -52,14 +52,14 @@ h2 {
 
 .tabela-itens th,
 .tabela-itens td {
-  border-bottom: 1px solid #3a3a3c;
+  border-bottom: 1px solid #ddd;
   padding: 12px 15px;
   text-align: left;
   vertical-align: middle;
 }
 
 .tabela-itens th {
-  background-color: #2c2c2e;
+  background-color: #f0f0f0;
   color: #00bfff;
   font-size: 0.9rem;
   text-transform: uppercase;
@@ -69,10 +69,11 @@ h2 {
   border-bottom: none;
 }
 
-.tabela-itens td a { 
-  color: #0dcaf0; 
+.tabela-itens td a {
+  color: #0dcaf0;
   text-decoration: none;
 }
+
 .tabela-itens td a:hover {
   text-decoration: underline;
 }
@@ -87,21 +88,45 @@ h2 {
   color: #fff;
 }
 
-.status-pagamento_pendente { background-color: #ffc107; color: #333; }
-.status-pagamento_aprovado { background-color: #198754; } 
-.status-processando { background-color: #0dcaf0; } 
-.status-enviado { background-color: #0d6efd; }
-.status-entregue { background-color: #198754; } 
-.status-cancelado { background-color: #dc3545; } 
+.status-pagamento_pendente {
+  background-color: #ffc107;
+  color: #333;
+}
 
+.status-pagamento_aprovado {
+  background-color: #198754;
+}
 
-.loading-message, .error-message, .no-data-message {
+.status-processando {
+  background-color: #0dcaf0;
+}
+
+.status-enviado {
+  background-color: #0d6efd;
+}
+
+.status-entregue {
+  background-color: #198754;
+}
+
+.status-cancelado {
+  background-color: #dc3545;
+}
+
+.loading-message,
+.error-message,
+.no-data-message {
   text-align: center;
   padding: 40px;
-  color: #aaa;
+  color: #666666;
   font-style: italic;
 }
-.error-message { color: #dc3545; font-style: normal; font-weight: bold;}
+
+.error-message {
+  color: #dc3545;
+  font-style: normal;
+  font-weight: bold;
+}
 
 .actions-footer {
   margin-top: 30px;
@@ -121,7 +146,7 @@ h2 {
   background-color: #6c757d;
   color: white;
 }
+
 .btn-voltar:hover {
   background-color: #5a6268;
 }
-
