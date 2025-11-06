@@ -69,7 +69,6 @@
   font-family: "Playfair Display", serif;
   font-size: clamp(3rem, 8vw, 5rem);
   font-weight: 900;
-  color: #0f2673;
   letter-spacing: 4px;
   text-transform: uppercase;
   margin-bottom: 1rem;
@@ -80,6 +79,7 @@
   background-clip: text;
   animation: shimmer 3s linear infinite;
   text-shadow: 0 0 40px rgba(93, 136, 255, 0.3);
+  color: #6283f0;
 }
 
 .hero-subtitle {
