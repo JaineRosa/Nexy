@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Produto } from '../../interfaces/Produto';
 import { ProdutoService } from '../../services/produtoService';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-banner',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './banner.html',
   styleUrl: './banner.css'
 })
