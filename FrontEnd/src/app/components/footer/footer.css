@@ -45,7 +45,7 @@
 .footer-heading {
   font-family: "Playfair Display", serif;
   font-weight: 700;
-  color: #6283f0;
+  color: #0d6efd;
   margin-bottom: 1rem;
 }
 
@@ -84,12 +84,12 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, #6283f0, #89a4f0);
+  background: linear-gradient(90deg, #0d6efd, #89a4f0);
   transition: width 0.3s ease;
 }
 
 .footer-link:hover {
-  color: #6283f0;
+  color: #0d6efd;
 }
 
 .footer-link:hover::after {
@@ -111,13 +111,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #6283f0;
+  color: #0d6efd;
   font-size: 1.2rem;
   transition: all 0.3s ease;
 }
 
 .social-icon:hover {
-  background: linear-gradient(135deg, #6283f0, #89a4f0);
+  background: linear-gradient(135deg, #0d6efd, #89a4f0);
   color: #ffffff;
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(98, 131, 240, 0.4);
@@ -141,14 +141,14 @@
 
 .newsletter-input:focus {
   outline: none;
-  border-color: #6283f0;
+  border-color: #0d6efd;
   background-color: #f0f4ff;
   box-shadow: 0 0 0 3px rgba(98, 131, 240, 0.2);
 }
 
 .newsletter-btn {
   padding: 0.8rem 1.5rem;
-  background: linear-gradient(135deg, #6283f0, #89a4f0);
+  background: linear-gradient(135deg, #0d6efd, #89a4f0);
   color: #ffffff;
   border: none;
   border-radius: 8px;
