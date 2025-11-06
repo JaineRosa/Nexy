@@ -40,18 +40,18 @@
     margin-top: 0.5rem;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
 }
-
-.produtos{
-    width: 350px;
+.card{
+     width: 350px;
     height: 500px;
 }
 
 .card-img-top {
-    width: 100%;
+    width: 90%;
     height: 220px;
     object-fit: cover;
     border-radius: 8px;
 }
+
 
 img {
     height: 220px;
