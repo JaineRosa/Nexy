@@ -11,6 +11,7 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
+import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.HashMap;
 import java.util.Map;
@@ -32,10 +33,9 @@ public class TrustPayService {
     private final ObjectMapper objectMapper = new ObjectMapper();
 
 
-    public String criarPaymentIntent(String orderId, double amount, String currency, String customerName, String customerEmail) {
+    public String criarPaymentIntent(String orderId, BigDecimal amount, String currency, String customerName, String customerEmail) {
         String path = "/api/merchant/v1/payment-intents";
         String url = trustPayApiUrl + path;
-        // Montar o corpo JSON da requisição
         Map<String, Object> payload = new HashMap<>();
         payload.put("orderId", orderId);
         payload.put("amount", amount);

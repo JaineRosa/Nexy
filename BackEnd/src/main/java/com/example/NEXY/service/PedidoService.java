@@ -5,6 +5,8 @@ import com.example.NEXY.repository.*;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
@@ -61,8 +63,9 @@ public class PedidoService {
         }
 
         String orderId = "PEDIDO-" + clienteId + "-" + System.currentTimeMillis();
-
-        double amountInReais = carrinho.getValorTotal();
+        double amountAsDouble = carrinho.getValorTotal();
+        BigDecimal amountInReais = BigDecimal.valueOf(amountAsDouble);
+        amountInReais = amountInReais.setScale(2, RoundingMode.HALF_UP);
         String paymentIntentId = trustPayService.criarPaymentIntent(
                 orderId,
                 amountInReais,
