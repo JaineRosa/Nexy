@@ -17,7 +17,6 @@
                         alt="{{ produto.nome }}" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">{{ produto.nome }}</h5>
-                        <p class="card-text">{{ produto.descricao }}</p>
                         <a [routerLink]="['/produto', produto.id]" class="btn btn-primary">Ver Detalhes</a>
                     </div>
                 </div>
