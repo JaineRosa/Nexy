@@ -1,13 +1,13 @@
 
 :root {
   /* Cores principais */
-  --bg-primary: #000000;
+  --bg-primary: #ffffff;
   --bg-secondary: #0a0a0a;
   --bg-elevated: #1a1a1a;
   --bg-hover: #1f1f1f;
 
   /* Texto */
-  --text-primary: #ffffff;
+  --text-primary: #000000;
   --text-secondary: #a1a1a1;
   --text-muted: #666666;
 
@@ -60,7 +60,7 @@ html {
 
 body {
   font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  background-color: var(--bg-primary);
+
   color: var(--text-primary);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
