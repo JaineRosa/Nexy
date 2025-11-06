@@ -1,17 +1,17 @@
 .product-grid {
- display: inline-flex;
+  display: inline-flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
   padding: 20px;
   border-radius: 8px;
-
+  background-color: #ffffff;
 }
 
 .no-products {
   text-align: center;
   padding: 50px;
-  color: #888;
+  color: #666666;
 }
 
 .product-list-container {
@@ -19,11 +19,11 @@
 }
 
 .product-list-header h2 {
-  color: #ffffff;
+  color: #1c1c1e;
   font-size: 1.8rem;
   font-weight: bold;
   margin-bottom: 25px;
   padding-bottom: 10px;
-  border-bottom: 2px solid #007bff; 
-  display: inline-block; 
+  border-bottom: 2px solid #007bff;
+  display: inline-block;
 }
