@@ -2,42 +2,48 @@
   max-width: 800px;
   margin: 40px auto;
   padding: 30px;
-  color: #fff;
-  background-color: #1c1c1c;
+  color: #1c1c1e;
+  background-color: #ffffff;
   border-radius: 8px;
   text-align: center;
+  border: 1px solid #ddd;
 }
 
 h2 {
-  color: #28a745; 
+  color: #28a745;
   font-size: 2.5rem;
   margin-bottom: 10px;
 }
 
 .subtitulo {
   font-size: 1.2rem;
-  color: #ccc;
+  color: #666666;
   margin-bottom: 30px;
 }
 
-.resumo-pedido, .resumo-entrega {
-  background-color: #2b2b2b;
+.resumo-pedido,
+.resumo-entrega {
+  background-color: #f9f9f9;
   border-radius: 8px;
   padding: 20px;
   margin-bottom: 20px;
   text-align: left;
+  border: 1px solid #ddd;
 }
 
-.resumo-pedido h3, .resumo-entrega h3 {
+.resumo-pedido h3,
+.resumo-entrega h3 {
   margin-top: 0;
-  border-bottom: 1px solid #444;
+  border-bottom: 1px solid #ccc;
   padding-bottom: 10px;
   margin-bottom: 15px;
+  color: #1c1c1e;
 }
 
-.resumo-pedido p, .resumo-entrega p {
+.resumo-pedido p,
+.resumo-entrega p {
   margin: 5px 0;
-  color: #eee;
+  color: #444444;
 }
 
 .lista-itens {
@@ -50,7 +56,7 @@ h2 {
   align-items: center;
   gap: 15px;
   padding: 10px 0;
-  border-bottom: 1px solid #444;
+  border-bottom: 1px solid #ddd;
 }
 
 .item-pedido img {
@@ -73,7 +79,8 @@ h2 {
   gap: 20px;
 }
 
-.btn-principal, .btn-secundario {
+.btn-principal,
+.btn-secundario {
   padding: 12px 25px;
   text-decoration: none;
   border-radius: 5px;
@@ -86,16 +93,28 @@ h2 {
   color: #fff;
 }
 
+.btn-principal:hover {
+  background-color: #0056b3;
+}
+
 .btn-secundario {
   background-color: transparent;
   border: 1px solid #007bff;
   color: #007bff;
 }
 
+.btn-secundario:hover {
+  background-color: #e6f0ff;
+}
+
 .feedback-box {
   padding: 40px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  color: #1c1c1e;
 }
 
 .feedback-box.erro h2 {
-    color: #dc3545;
+  color: #dc3545;
 }
