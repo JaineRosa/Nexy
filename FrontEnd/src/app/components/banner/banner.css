@@ -42,12 +42,13 @@
     margin-top: 0.5rem;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
 }
-.card{
+
+.card {
     border-radius: 8px;
-     width: 350px;
+    width: 350px;
     height: 500px;
     border-color: 1px solid #0d6efd;
-
+    color: #1c1c1e;
 }
 
 .card-img-top {
@@ -58,7 +59,10 @@
     border-radius: 8px;
 }
 
-
+button{
+    magin-top: 10px;
+    color: #1c1c1e;
+}
 
 @media (max-width: 768px) {
     .card-img-top {
