@@ -42,12 +42,13 @@
 }
 .card{
      width: 350px;
-    height: 500px;
+    height: 600px;
 }
 
 .card-img-top {
+    text-align: center;
     width: 90%;
-    height: 220px;
+    height: 250px;
     object-fit: cover;
     border-radius: 8px;
 }
