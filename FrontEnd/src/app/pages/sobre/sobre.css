@@ -1,4 +1,9 @@
+/* Importar fontes sofisticadas */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 
+
+/* Reset e configurações base */
 * {
   margin: 0;
   padding: 0;
@@ -6,8 +11,8 @@
 }
 
 .sobre-container {
-  font-family: "Inter", sans-serif;
-  background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+  font-family: 'Roboto' sans-serif;
+  background: #ffffff;
   color: #f5f5f5;
   min-height: 100vh;
   overflow-x: hidden;
@@ -135,7 +140,7 @@
 }
 
 .card-elevated {
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
+  background: #f9f9f9;
   border-radius: 24px;
   padding: 3rem;
   border: 1px solid rgba(38, 23, 255, 0.3);
@@ -194,10 +199,9 @@
 .mv-card {
   padding: 3rem;
   border-radius: 24px;
-  border: 1px solid rgba(38, 23, 255, 0.3);
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(38, 23, 255, 0.3);
-  backdrop-filter: blur(10px);
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   text-align: center;
   animation: fade-in 0.8s ease-out;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -205,7 +209,7 @@
 
 .mv-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 30px 80px rgba(93, 136, 255, 0.3), inset 0 1px 0 rgba(38, 23, 255, 0.3);
+  box-shadow: 0 20px 40px rgba(98, 131, 240, 0.2);
 }
 
 .mv-card .section-header {
@@ -235,10 +239,19 @@
 .mv-card .text-large {
   font-size: clamp(1.1rem, 2vw, 1.3rem);
   line-height: 2;
-  color: #e0e0e0;
+  color:#f9f9f9;
   text-align: center;
   font-weight: 300;
 }
+
+.mv-card .text-large-black {
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  line-height: 2;
+  color:#666666;
+  text-align: center;
+  font-weight: 300;
+}
+
 
 
 .text-large {
@@ -252,7 +265,7 @@
 .section-intro {
   text-align: center;
   font-size: 1.1rem;
-  color: #b0b0b0;
+  color: #666666;
   margin-bottom: 3rem;
   font-style: italic;
 }
@@ -264,7 +277,6 @@
   margin: 2rem auto 0;
 }
 
-/* Grid de Valores */
 .values-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -273,11 +285,11 @@
 }
 
 .value-card {
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
+  background-color: #f9f9f9;
   border-radius: 20px;
   padding: 2.5rem 2rem;
   text-align: center;
-  border: 1px solid rgba(38, 23, 255, 0.3);
+  border: 1px solid #ddd;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
@@ -297,8 +309,8 @@
 
 .value-card:hover {
   transform: translateY(-10px);
-  border-color: rgba(38, 23, 255, 0.3);
-  box-shadow: 0 20px 40px rgba(93, 136, 255, 0.3);
+  border-color: #6283f0;
+  box-shadow: 0 20px 40px rgba(98, 131, 240, 0.2);
 }
 
 .value-card:hover::before {
@@ -308,7 +320,7 @@
 .value-icon {
   font-size: 3.5rem;
   margin-bottom: 1.5rem;
-  filter: drop-shadow(0 0 15px rgba(93, 136, 255, 0.3));
+  filter: drop-shadow(0 0 15px rgba(98, 131, 240, 0.2));
   transition: transform 0.3s ease;
 }
 
@@ -324,10 +336,11 @@
 }
 
 .value-description {
-  color: #c0c0c0;
+  color: #f9f9f9;
   line-height: 1.6;
   font-size: 1rem;
 }
+
 
 /* Substituir .team-grid por esta versão flexbox */
 .team-grid {
@@ -408,7 +421,7 @@
   text-align: center;
   margin-top: 5rem;
   padding: 4rem 2rem;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
+  background: #f9f9f9;
   border-radius: 24px;
   border: 1px solid rgba(38, 23, 255, 0.3);
 }
@@ -416,7 +429,7 @@
 .cta-title {
   font-family: "Playfair Display", serif;
   font-size: clamp(1.8rem, 3vw, 2.5rem);
-  color: #ffffff;
+  color: #6283f0;
   margin-bottom: 2rem;
   font-weight: 700;
 }
