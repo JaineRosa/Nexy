@@ -1,17 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;500;700&display=swap');
-.footer-container {ror-title {
-  font-size: 2rem;
-  margin-bottom: var(--spacing-md);
-}
+.footer-container {
+  ror-title {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-md);
+  }
 
-.error-message {
-  color: var(--text-secondary);
-  margin-bottom: var(--spacing-xl);
-}
-  font-family: 'roboto', sans-serif;
-  background-color: #ffffff;
-  color: #1c1c1e;
+  .error-message {
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  font-family: 'roboto',
+  sans-serif;
+  background-color: write;
   padding: 4rem 2rem 2rem;
+  color: #131314;
 }
 
 .footer-content {
