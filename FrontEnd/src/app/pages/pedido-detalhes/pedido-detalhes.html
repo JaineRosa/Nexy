@@ -44,7 +44,7 @@
           </ng-template>
           <div class="info-item">
             <h4>{{ item.produto.nome }}</h4>
-            <p>Preço: R$ {{ item.produto.preco }}</p>
+            <p>Preço: R$ {{ item.produto.preco | currency:'BRL'  }}</p>
             <p>Quantidade: {{ item.quantidade }}</p>
           </div>
         </div>
