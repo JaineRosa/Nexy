@@ -1,5 +1,5 @@
 import { CommonModule, Location } from '@angular/common';
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Pedido } from '../../interfaces/Pedido';
 import { PedidoService } from '../../services/pedidoService';
@@ -13,7 +13,7 @@ import { AdminStateService } from '../../services/admin-state-service';
   styleUrl: './gerenciar-pedidos-detalhes.css'
 })
 export class GerenciarPedidosDetalhes implements OnInit {
-pedido: Pedido | null = null;
+  pedido: Pedido | null = null;
   carregando = true;
   erro: string | null = null;
 
@@ -23,7 +23,7 @@ pedido: Pedido | null = null;
     private router: Router,
     private adminStateService: AdminStateService,
     private location: Location
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     console.log("ngOnInit de Detalhes do Pedido iniciado."); // Log Adicional
@@ -35,25 +35,34 @@ pedido: Pedido | null = null;
           this.erro = 'ID do pedido não encontrado na rota.';
           this.carregando = false;
           console.error(this.erro); // Log erro
-          return []; 
+          return [];
         }
         this.carregando = true;
         this.erro = null;
         console.log("A buscar pedido com ID:", id); // Log Adicional
         // Confirme se buscarPorIdAdmin é o método correto
-        return this.pedidoService.buscarPorId(+id); 
+        return this.pedidoService.buscarPorId(+id);
       })
     ).subscribe({
-        next: (dados) => {
-          this.pedido = dados;
-          this.carregando = false;
-          console.log("Detalhes do pedido carregados:", this.pedido); 
-        },
-        error: (err) => {
-          console.error("Erro ao carregar detalhes do pedido:", err);
-          this.erro = "Não foi possível carregar os detalhes do pedido.";
-          this.carregando = false;
-        }
+      next: (dados) => {
+        const dataArray = dados.dataPedido as any as number[];
+        dados.dataPedido = new Date(
+          dataArray[0],       // Ano
+          dataArray[1] - 1,   // Mês (!!!)
+          dataArray[2],       // Dia
+          dataArray[3],       // Hora
+          dataArray[4],       // Minuto
+          dataArray[5]        // Segundo
+        );
+        this.pedido = dados;
+        this.carregando = false;
+        console.log("Detalhes do pedido carregados:", this.pedido);
+      },
+      error: (err) => {
+        console.error("Erro ao carregar detalhes do pedido:", err);
+        this.erro = "Não foi possível carregar os detalhes do pedido.";
+        this.carregando = false;
+      }
     });
   }
 
