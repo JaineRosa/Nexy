@@ -6,7 +6,7 @@ import { ProdutoService } from '../../../services/produtoService';
 import { CategoriaService } from '../../../services/categoriaService';
 import { Produto } from '../../../interfaces/Produto';
 import { HttpEventType } from '@angular/common/http';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ImagemProduto } from '../../../interfaces/ImagemProduto';
 
 
@@ -14,7 +14,7 @@ import { ImagemProduto } from '../../../interfaces/ImagemProduto';
 @Component({
   selector: 'app-produto-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink],
   templateUrl: './produto-form.html',
   styleUrl: './produto-form.css'
 })
@@ -38,6 +38,7 @@ export class ProdutoForm implements OnInit, OnChanges {
     private produtoService: ProdutoService,
     private categoriaService: CategoriaService,
     private router: Router
+  
   ) {
 
     this.produtoForm = this.fb.group({
