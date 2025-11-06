@@ -4,21 +4,24 @@
   justify-content: center;
   align-items: center;
   padding: var(--spacing-2xl);
+  background-color: #ffffff;
+  color: #1c1c1e;
 }
 
 .auth-form {
   width: 100%;
   max-width: 450px;
-  background: var(--bg-secondary);
+  background: #ffffff;
   padding: var(--spacing-2xl);
   border-radius: var(--radius-lg);
-  border: 1px solid var(--border-color);
+  border: 1px solid #ddd;
   box-shadow: var(--shadow-lg);
   display: flex;
   flex-direction: column;
   gap: var(--spacing-lg);
   transition: all var(--transition-slow);
   animation: fadeIn var(--transition-slow);
+  color: #1c1c1e;
 }
 
 .auth-form:hover {
@@ -33,10 +36,16 @@
 .form-group label {
   margin-bottom: var(--spacing-xs);
   font-size: 0.85rem;
+  color: #333;
 }
 
 input {
   padding: 12px 14px;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: var(--radius-md);
+  color: #1c1c1e;
+  font-size: 1rem;
 }
 
 input:focus {
@@ -44,6 +53,7 @@ input:focus {
   box-shadow:
     0 0 12px rgba(59, 130, 246, 0.35),
     0 0 28px rgba(59, 130, 246, 0.15);
+  outline: none;
 }
 
 button[type="submit"]:hover:enabled {
@@ -56,6 +66,7 @@ button[type="submit"]:hover:enabled {
 
 .form-link a {
   font-weight: 600;
+  color: var(--accent-primary);
 }
 
 .form-link a:hover {
@@ -68,6 +79,7 @@ button[type="submit"]:hover:enabled {
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
