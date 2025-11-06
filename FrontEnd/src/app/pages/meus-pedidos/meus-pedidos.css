@@ -5,12 +5,12 @@
   font-family: "Inter", sans-serif;
   background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
   color: #f5f5f5;
-  min-height: 80vh;
+  min-height: 100vh;
   padding: 3rem 2rem;
 }
 
 
-.meus-pedidos-container > * {
+.meus-pedidos-container>* {
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
@@ -29,14 +29,14 @@
 }
 
 .meus-pedidos-container h2::after {
-    content: "";
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60%;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, #6283f0, transparent);
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #6283f0, transparent);
 }
 
 
@@ -87,6 +87,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+
 }
 
 
@@ -95,7 +96,7 @@
   border-radius: 20px;
   border: 1px solid rgba(98, 131, 240, 0.2);
   transition: all 0.3s ease;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 .pedido-card:hover {
@@ -127,8 +128,12 @@
 
 
 .card-body {
-  padding: 1.5rem;
-  color: #b0b0b0;
+  padding: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .card-body p {
@@ -139,12 +144,6 @@
   color: #e0e0e0;
 }
 
-
-.card-footer {
-  padding: 1rem 1.5rem;
-  background: rgba(0, 0, 0, 0.2);
-  text-align: right; 
-}
 
 
 .btn-detalhes {
@@ -157,7 +156,8 @@
   font-weight: 600;
   transition: all 0.3s ease;
   font-size: 0.9rem;
-  margin-bottom: 10px;
+  margin-bottom: 0;
+  flex-shrink: 0;
 }
 
 .btn-detalhes:hover {
@@ -175,20 +175,37 @@
   display: inline-block;
   background-color: #28a745;
   color: #fff;
-  white-space: nowrap; 
+  white-space: nowrap;
 }
 
-.status-pagamento_pendente { background-color: #ffc107; }
-.status-pagamento_aprovado { background-color: #198754; } 
-.status-processando { background-color: #0dcaf0; } 
-.status-enviado { background-color: #0d6efd; }
-.status-entregue { background-color: #198754; } 
-.status-cancelado { background-color: #dc3545; }
+.status-pagamento_pendente {
+  background-color: #ffc107;
+}
+
+.status-pagamento_aprovado {
+  background-color: #198754;
+}
+
+.status-processando {
+  background-color: #0dcaf0;
+}
+
+.status-enviado {
+  background-color: #0d6efd;
+}
+
+.status-entregue {
+  background-color: #198754;
+}
+
+.status-cancelado {
+  background-color: #dc3545;
+}
 
 
 @media (max-width: 576px) {
   .card-header {
-    flex-direction: column; 
+    flex-direction: column;
     align-items: flex-start;
     gap: 0.8rem;
   }

@@ -26,10 +26,10 @@
         </span>
       </div>
       <div class="card-body">
-        <p><strong>Valor Total:</strong> {{ pedido.valorTotal | currency:'BRL' }}</p>
-        <p><strong>Entregar em:</strong> {{ pedido.endereco.rua }}, {{ pedido.endereco.numero }}</p>
-      </div>
-      <div class="card-footer">
+        <div>
+          <p><strong>Valor Total:</strong> {{ pedido.valorTotal | currency:'BRL' }}</p>
+          <p><strong>Entregar em:</strong> {{ pedido.endereco.rua }}, {{ pedido.endereco.numero }}</p>
+        </div>
         <a [routerLink]="['/pedido-detalhes', pedido.id]" class="btn-detalhes">Ver Detalhes do Pedido</a>
       </div>
     </div>
