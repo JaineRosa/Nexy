@@ -25,6 +25,9 @@
     object-fit: cover;
     border-radius: 8px;
 }
+.container{
+    height: 400px;
+}
 
 img{
 height: 220px;
