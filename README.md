@@ -154,7 +154,7 @@ O painel de gerenciamento é uma área restrita para os administradores da loja 
 
 ## Semana 1 
 
-* Organização inicial das tarefas no Trello ` (https://trello.com/b/AhUYkmES) ` (Ruthe)
+* Organização inicial das tarefas no Trello [Trelo Projeto](https://trello.com/b/AhUYkmES)  (Ruthe)
 
 
 * Planejamento visual e estrutural do sistema
