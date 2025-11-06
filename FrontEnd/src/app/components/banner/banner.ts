@@ -12,10 +12,11 @@ import { ProdutoService } from '../../services/produtoService';
 })
 export class Banner  implements OnInit {
   produtosDestaque: Produto[] = [];
-  imagensBanner: string[] = [
-    'https://res.cloudinary.com/dy3yozja2/image/upload/v1762177759/elwrfr2lzr5tixy7hufi.png',
-    'https://res.cloudinary.com/dy3yozja2/image/upload/v1762177838/o0qr0hwyahjgnkb01sbh.png',
-    'https://res.cloudinary.com/dy3yozja2/image/upload/v1762177701/b5u8gbrpxrvtszjqnn3c.png'
+imagensBanner: string[] = [
+    '/img/banner/banner1.png',
+    '/img/banner/banner2.png',
+    '/img/banner/banner3.png',
+    '/img/banner/banner4.png'
   ];
   imagemAtual: string = this.imagensBanner[0];
   indiceAtual: number = 0;

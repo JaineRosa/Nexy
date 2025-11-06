@@ -3,7 +3,8 @@
   margin-bottom: 2rem;
 }
 
-.destaques, .produtos-grid {
+.destaques,
+.produtos-grid {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
@@ -20,4 +21,7 @@
 .filtros label {
   display: flex;
   flex-direction: column;
+  color: #1c1c1e;
+  font-weight: 500;
+  font-size: 0.95rem;
 }
