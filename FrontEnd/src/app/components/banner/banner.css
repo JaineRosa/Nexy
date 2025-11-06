@@ -50,11 +50,14 @@
     border-color: 1px solid #0d6efd;
     color: #1c1c1e;
 }
-.card-title , .btn-primary{
+.card-title {
     color: #1c1c1e;
-    height: 20px;
+    height: 26px;
 }
 
+.btn-primary{
+    color: #1c1c1e;
+}
 .card-img-top {
     text-align: center;
     width: 100%;
