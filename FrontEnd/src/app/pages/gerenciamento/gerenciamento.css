@@ -2,20 +2,21 @@
   display: flex;
   flex-wrap: nowrap;
   gap: 20px;
-  
 }
 
 .categorias {
   font-size: 24px;
   top: 20px;
   overflow-y: auto;
-  border-right: 1px solid #ddd;
+  overflow-x: hidden;
   flex-basis: 250px;
   flex-shrink: 0;
-  overflow-x: hidden; 
+  border-right: 1px solid #ddd;
+  background-color: #ffffff;
+  color: #1c1c1e;
+  padding-right: 10px;
 }
 
-.produtos{
+.produtos {
   width: 100%;
 }
-
