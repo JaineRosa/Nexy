@@ -1,21 +1,12 @@
-
-.fundo {
-  background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
-  width: 100%;
-  padding: 0;
-  margin: 0;
-}
-
-.detalhes-container {
-  font-family: "Inter", sans-serif;
-  background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
-  color: #f5f5f5;
+detalhes-container {
+  font-family: 'Roboto', sans-serif;
+  background: #ffffff;
+  color: #1c1c1e;
   min-height: 100vh;
   padding: 3rem 2rem;
   max-width: 1000px;
   margin: 0 auto;
 }
-
 
 .cabecalho-pedido {
   display: flex;
@@ -46,9 +37,8 @@
 
 .btn-voltar:hover {
   background: rgba(98, 131, 240, 0.1);
-  color: #ffffff;
+  color: #1c1c1e;
 }
-
 
 .info-grid {
   display: grid;
@@ -58,7 +48,7 @@
 }
 
 .info-card {
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
+  background: #f9f9f9;
   border-radius: 24px;
   padding: 2rem;
   border: 1px solid rgba(98, 131, 240, 0.3);
@@ -74,10 +64,9 @@
 
 .info-card p {
   margin: 0.25rem 0;
-  color: #b0b0b0;
+  color: #666666;
   line-height: 1.6;
 }
-
 
 .detalhes-container>h3 {
   font-family: "Playfair Display", serif;
@@ -96,7 +85,7 @@
 }
 
 .item-pedido {
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
+  background: #f9f9f9;
   border-radius: 20px;
   padding: 1rem;
   border: 1px solid rgba(98, 131, 240, 0.2);
@@ -118,14 +107,14 @@
 
 .info-item h4 {
   font-size: 1.2rem;
-  color: #ffffff;
+  color: #1c1c1e;
   font-weight: 600;
   margin: 0 0 0.5rem 0;
 }
 
 .info-item p {
   margin: 0.25rem 0;
-  color: #b0b0b0;
+  color: #666666;
   font-size: 0.9rem;
 }
 
@@ -136,15 +125,13 @@
 
 .subtotal-item strong {
   font-size: 1.2rem;
-  color: #ffffff;
+  color: #1c1c1e;
   font-weight: 600;
 }
 
-/*
-  Resumo Total (Caixa no final)
-*/
+/* Resumo Total */
 .resumo-total {
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
+  background: #f9f9f9;
   border-radius: 24px;
   padding: 2rem;
   border: 1px solid rgba(98, 131, 240, 0.3);
@@ -165,19 +152,17 @@
   justify-content: space-between;
   padding: 0.75rem 0;
   border-bottom: 1px solid rgba(98, 131, 240, 0.2);
-  color: #e0e0e0;
+  color: #666666;
 }
 
 .linha-total.final {
   border-bottom: none;
   font-size: 1.2rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #1c1c1e;
 }
 
-/*
-  Status do Pedido (Copiado do seu CSS, está correto)
-*/
+/* Status do Pedido */
 .status {
   padding: 5px 12px;
   border-radius: 20px;
@@ -213,15 +198,14 @@
   background-color: #dc3545;
 }
 
-/*
-  Caixas de Feedback (Carregando e Erro)
-*/
+/* Caixas de Feedback */
 .feedback-box {
   text-align: center;
   padding: 4rem;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
+  background: #f9f9f9;
   border-radius: 24px;
   border: 1px solid rgba(98, 131, 240, 0.3);
+  color: #1c1c1e;
 }
 
 .feedback-box.erro h2 {

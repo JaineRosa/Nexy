@@ -1,11 +1,19 @@
-
-
 .meus-pedidos-container {
-  font-family: "Inter", sans-serif;
-  background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
-  color: #f5f5f5;
+  font-family: 'Roboto', sans-serif;
+  background: #ffffff;
+  color: #1c1c1e;
   min-height: 100vh;
   padding: 3rem 2rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
 }
 
 
@@ -14,7 +22,6 @@
   margin-left: auto;
   margin-right: auto;
 }
-
 
 .meus-pedidos-container h2 {
   font-family: "Playfair Display", serif;
@@ -38,15 +45,15 @@
   background: linear-gradient(90deg, transparent, #6283f0, transparent);
 }
 
-
 .feedback-box {
   text-align: center;
   padding: 4rem;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
+  background: #f9f9f9;
   border-radius: 24px;
   border: 1px solid rgba(98, 131, 240, 0.3);
   max-width: 600px;
   margin: 2rem auto;
+  color: #1c1c1e;
 }
 
 .feedback-box.erro {
@@ -56,10 +63,9 @@
 
 .feedback-box p {
   font-size: 1.2rem;
-  color: #b0b0b0;
+  color: #666666;
   margin-bottom: 1.5rem;
 }
-
 
 .btn-principal {
   display: inline-block;
@@ -81,17 +87,14 @@
   transform: translateY(-2px);
 }
 
-
 .lista-pedidos {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-
 }
 
-
 .pedido-card {
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
+  background: #ffffff;
   border-radius: 20px;
   border: 1px solid rgba(98, 131, 240, 0.2);
   transition: all 0.3s ease;
@@ -102,7 +105,6 @@
   border-color: #6283f0;
   box-shadow: 0 10px 30px rgba(98, 131, 240, 0.2);
 }
-
 
 .card-header {
   display: flex;
@@ -116,23 +118,18 @@
 .card-header h4 {
   margin: 0 0 0.25rem 0;
   font-size: 1.3rem;
-  color: #ffffff;
+  color: #1c1c1e;
 }
 
 .card-header p {
   margin: 0;
-  color: #b0b0b0;
+  color: #666666;
   font-size: 0.9rem;
 }
 
-
 .card-body {
-  padding: 1.25rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
+  padding: 1.5rem;
+  color: #666666;
 }
 
 .card-body p {
@@ -140,10 +137,14 @@
 }
 
 .card-body strong {
-  color: #e0e0e0;
+  color: #1c1c1e;
 }
 
-
+.card-footer {
+  padding: 1rem 1.5rem;
+  background: #f5f5f5;
+  text-align: right;
+}
 
 .btn-detalhes {
   background: transparent;
@@ -155,15 +156,12 @@
   font-weight: 600;
   transition: all 0.3s ease;
   font-size: 0.9rem;
-  margin-bottom: 0;
-  flex-shrink: 0;
 }
 
 .btn-detalhes:hover {
   background: rgba(98, 131, 240, 0.1);
-  color: #ffffff;
+  color: #1c1c1e;
 }
-
 
 .status {
   padding: 5px 12px;
@@ -200,7 +198,6 @@
 .status-cancelado {
   background-color: #dc3545;
 }
-
 
 @media (max-width: 576px) {
   .card-header {
