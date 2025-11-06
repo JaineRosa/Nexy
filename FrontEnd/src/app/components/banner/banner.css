@@ -41,6 +41,10 @@
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
 }
 
+.card{
+    width: 200px;
+    height: 450px;
+}
 
 .card-img-top {
     width: 100%;
