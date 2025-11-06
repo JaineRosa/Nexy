@@ -1,22 +1,16 @@
-
-
-
 .checkout-page {
-  font-family: "Inter", sans-serif;
-  background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
-  color: #f5f5f5;
+  font-family: 'Roboto', sans-serif;
+  background: #ffffff;
+  color: #1c1c1e;
   min-height: 100vh;
   padding: 3rem 2rem;
 }
 
-
 .checkout-container {
-  
-  display: block; 
-  max-width: 800px; 
+  display: block;
+  max-width: 800px;
   margin: 0 auto;
 }
-
 
 .checkout-forms h2 {
   font-family: "Playfair Display", serif;
@@ -28,56 +22,53 @@
   position: relative;
 }
 
-
 .checkout-forms h3 {
   font-family: "Playfair Display", serif;
   font-size: 1.8rem;
   color: #6283f0;
-  margin-top: 2.5rem; 
+  margin-top: 2.5rem;
   margin-bottom: 1.5rem;
   font-weight: 700;
   border-bottom: 1px solid rgba(98, 131, 240, 0.2);
   padding-bottom: 0.5rem;
 }
 
-
 .checkout-forms h4 {
   font-size: 1.25rem;
-  color: #e0e0e0;
+  color: #333333;
   font-weight: 600;
   margin-top: 1.5rem;
   margin-bottom: 1rem;
 }
 
-
-
 .item-salvo,
 .endereco-salvo {
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
+  background: #f9f9f9;
   border-radius: 20px;
   padding: 1.5rem;
-  border: 1px solid rgba(98, 131, 240, 0.2);
+  border: 1px solid #ddd;
   cursor: pointer;
   transition: all 0.3s ease;
   margin-bottom: 1rem;
-  color: #f5f5f5;
+  color: #1c1c1e;
 }
 
 .item-salvo p,
 .endereco-salvo p {
-  color: #f5f5f5;
+  color: #1c1c1e;
   margin: 0;
 }
-.item-salvo p + p, 
-.endereco-salvo p + p {
+
+.item-salvo p+p,
+.endereco-salvo p+p {
   margin-top: 0.25rem;
-  color: #b0b0b0;
+  color: #666666;
   font-size: 0.9rem;
 }
 
 .item-salvo strong,
 .endereco-salvo strong {
-  color: #ffffff;
+  color: #1c1c1e;
   font-weight: 600;
 }
 
@@ -99,14 +90,15 @@
   align-items: center;
   gap: 1rem;
 }
+
 .icone-cartao {
   font-size: 2rem;
 }
+
 .nome-titular {
   font-size: 0.875rem;
-  color: #b0b0b0;
+  color: #666666;
 }
-
 
 .form-group {
   margin-bottom: 1rem;
@@ -117,16 +109,16 @@
   font-size: 0.9rem;
   font-weight: 500;
   margin-bottom: 0.5rem;
-  color: #b0b0b0;
+  color: #333333;
 }
 
 .form-group input {
   width: 100%;
   padding: 0.875rem 1rem;
   border-radius: 10px;
-  border: 1px solid rgba(98, 131, 240, 0.3);
-  background: rgba(0, 0, 0, 0.2);
-  color: #f5f5f5;
+  border: 1px solid #ccc;
+  background: #ffffff;
+  color: #1c1c1e;
   font-size: 1rem;
   transition: all 0.3s ease;
   box-sizing: border-box;
@@ -135,12 +127,9 @@
 .form-group input:focus {
   outline: none;
   border-color: #6283f0;
-  background: rgba(0, 0, 0, 0.4);
+  background: #f0f8ff;
   box-shadow: 0 0 10px rgba(98, 131, 240, 0.3);
 }
-
-
-
 
 .btn-toggle-form {
   background: transparent;
@@ -149,7 +138,7 @@
   font-weight: 600;
   cursor: pointer;
   padding: 0.8rem 1.5rem;
-  margin-top: 1rem; 
+  margin-top: 1rem;
   margin-bottom: 1.5rem;
   border-radius: 12px;
   transition: all 0.3s ease;
@@ -157,9 +146,8 @@
 
 .btn-toggle-form:hover {
   background: rgba(98, 131, 240, 0.1);
-  color: #ffffff;
+  color: #1c1c1e;
 }
-
 
 .btn-salvar,
 .btn-prosseguir,
@@ -193,34 +181,28 @@
 .btn-salvar:disabled,
 .btn-prosseguir:disabled,
 .btn-finalizar:disabled {
-  background: #555;
+  background: #ddd;
   color: #999;
   cursor: not-allowed;
   box-shadow: none;
   transform: none;
 }
 
-
 .carregando {
   text-align: center;
   padding: 3rem;
   font-size: 1.2rem;
-  color: #b0b0b0;
+  color: #666666;
 }
-
-
-
 
 @media (max-width: 968px) {
   .checkout-container {
-
-    
+    padding: 0 1rem;
   }
 }
 
 @media (max-width: 768px) {
   .checkout-container {
-    
+    padding: 0 0.5rem;
   }
-  
 }
