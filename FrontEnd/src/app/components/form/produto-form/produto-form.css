@@ -9,7 +9,7 @@
   text-align: center;
   margin-bottom: 30px;
   padding-bottom: 15px;
-  border-bottom: 2px solid #00bfff;
+  border-bottom: 2px solid #0d6efd;
 }
 
 form {
@@ -73,7 +73,7 @@ form {
   height: 44px;
   font-size: 1.5rem;
   padding: 0;
-  background-color: #007bff;
+  background-color: #0d6efd;
   color: white;
   border: none;
   border-radius: 4px;
@@ -162,7 +162,7 @@ button[type="submit"] {
   width: 100%;
   padding: 12px;
   margin-top: 10px;
-  background-color: #007bff;
+  background-color: #0d6efd;
   border: none;
   border-radius: 4px;
   color: #fff;
@@ -218,6 +218,6 @@ button[type="submit"]:disabled {
 }
 
 .modal-actions .btn-salvar {
-  background-color: #28a745;
+  background-color: #0d6efd;
   color: #fff;
 }

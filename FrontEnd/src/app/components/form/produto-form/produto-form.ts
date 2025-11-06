@@ -218,6 +218,7 @@ export class ProdutoForm implements OnInit, OnChanges {
         next: (produtoSalvo) => {
           console.log('ProdutoForm: CRIAÇÃO bem-sucedida!', produtoSalvo);
           this.uploadDeImagens(produtoSalvo.id, 'Produto cadastrado');
+          this.router.navigate(['/gerenciamento']);
         },
         error: (erro) => console.error('ProdutoForm: Erro ao CADASTRAR produto:', erro)
       });
