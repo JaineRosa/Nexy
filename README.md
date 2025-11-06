@@ -120,16 +120,16 @@ A interface do cliente permite ao usuário navegar pela loja, gerenciar seu carr
     ![Tela de Login](screenshots/login.PNG)
 
 * *Home Page:* Apresenta os "Produtos em Destaque" da loja.
-    ![Tela Home](screenshots/home.jpg)
+    ![Tela Home](screenshots/home.PNG)
 
 * *Catálogo de Produtos:* Exibe todos os produtos disponíveis em grades, com sistema de categorias na lateral.
-    ![Página de Produtos](screenshots/produtos.jpg)
+    ![Página de Produtos](screenshots/produtos.PNG)
 
 * *Carrinho de Compras:* O usuário pode adicionar produtos ao carrinho, ajustar a quantidade e ver o "Resumo do Pedido".
     ![Carrinho de Compras](screenshots/carrinho.PNG)
 
 * *Páginas Estáticas:* Seções informativas como "Sobre nós", "Nossa Missão" e "Nossa Visão".
-    ![Página Sobre](screenshots/Sobre.jpg)
+    ![Página Sobre](screenshots/Sobre.PNG)
 
 * *Histórico de Pedidos:* O cliente pode acessar a página "Meus Pedidos" para consultar o histórico de suas compras.
     ![Página Meus Pedidos](screenshots/meus%20pedidos.PNG) 
