@@ -1,9 +1,8 @@
 h2 {
-  color: #f0f0f0;
+  color: #1c1c1e;
   border-bottom: 2px solid #00bfff;
   padding-bottom: 15px;
   margin-bottom: 25px;
-  
 }
 
 .header-actions {
@@ -18,14 +17,14 @@ h2 {
 
 .tabela-categorias th,
 .tabela-categorias td {
-  border-bottom: 1px solid #3a3a3c;
+  border-bottom: 1px solid #ddd;
   padding: 15px;
   text-align: left;
   vertical-align: middle;
 }
 
 .tabela-categorias th {
-  background-color: #2c2c2e;
+  background-color: #f0f0f0;
   color: #00bfff;
   font-size: 0.9rem;
   text-transform: uppercase;
@@ -41,9 +40,11 @@ h2 {
   justify-content: flex-start;
 }
 
-
 .edit-form {
   padding: 25px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
 }
 
 .edit-form h3 {
@@ -61,17 +62,17 @@ h2 {
   margin-bottom: 8px;
   font-weight: bold;
   font-size: 0.9rem;
-  color: #aaa;
+  color: #333;
 }
 
 .edit-form input[type="text"],
-.form-group input{
+.form-group input {
   width: 100%;
   padding: 12px;
   border-radius: 6px;
-  border: 1px solid #555;
-  background-color: #3a3a3c;
-  color: #f0f0f0;
+  border: 1px solid #ccc;
+  background-color: #ffffff;
+  color: #1c1c1e;
   box-sizing: border-box;
   font-size: 1rem;
 }
@@ -83,8 +84,9 @@ h2 {
   margin-top: 20px;
 }
 
-
-button, .btn-novo, a.btn-editar {
+button,
+.btn-novo,
+a.btn-editar {
   padding: 10px 18px;
   border: none;
   border-radius: 6px;
@@ -94,26 +96,13 @@ button, .btn-novo, a.btn-editar {
   display: inline-block;
   text-align: center;
   transition: all 0.2s ease;
-}
-
-
-button {
   background-color: #007bff;
   color: white;
 }
+
 button:hover {
   background-color: #0056b3;
 }
-
-
-
-
-
-
-
-
-
-
 
 .modal-overlay {
   position: fixed;
@@ -121,22 +110,23 @@ button:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); 
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  backdrop-filter: blur(5px); 
+  backdrop-filter: blur(5px);
 }
 
 .modal-content {
-  background-color: #2c2c2e;
+  background-color: #ffffff;
   padding: 30px;
   border-radius: 8px;
-  border: 1px solid #3a3a3c;
+  border: 1px solid #ddd;
   width: 100%;
-  max-width: 500px; 
-  box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+  max-width: 500px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+  color: #1c1c1e;
 }
 
 .modal-content h3 {
@@ -145,7 +135,6 @@ button:hover {
   margin-bottom: 20px;
 }
 
-
 .modal-content .form-actions {
-  justify-content: flex-end; 
+  justify-content: flex-end;
 }
