@@ -239,6 +239,7 @@ export class ProdutoForm implements OnInit, OnChanges {
     console.log('ProdutoForm: onSaveSuccess - Emitindo formClosed.');
     alert(mensagem);
     this.formClosed.emit();
+    this.router.navigate(['/gerenciamento']);
   }
 
   cancel(): void {
